@@ -4,8 +4,8 @@ title = 'MeshLab'
 theme = 'sans'
 publishDir = "public"
 
-canonifyURLs = false  
-relativeURLs = false  
+canonifyURLs = false
+relativeURLs = false
 
 enableRobotsTXT = true
 summaryLength = 50
