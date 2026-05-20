@@ -1,8 +1,30 @@
 {{ define "main" }}
 
 {{/* ============================== HERO ============================== */}}
-<section class="relative">
-  <div class="container max-w-6xl mx-auto px-6 lg:px-8 pt-20 pb-24 lg:pt-32 lg:pb-40">
+<section class="relative overflow-hidden hero-section">
+  {{/* research-image background, lightly tinted toward canvas so it reads as atmosphere */}}
+  <div class="absolute inset-0 hero-backdrop" aria-hidden="true">
+    {{ $hero := resources.Get "images/hero-research.jpg" }}
+    {{ if $hero }}
+      {{ $heroLg := $hero.Resize "1920x webp q70" }}
+      {{ $heroMd := $hero.Resize "1280x webp q70" }}
+      {{ $heroSm := $hero.Resize "800x webp q70" }}
+      <img
+        src="{{ $heroMd.RelPermalink }}"
+        srcset="{{ $heroSm.RelPermalink }} 800w,
+                {{ $heroMd.RelPermalink }} 1280w,
+                {{ $heroLg.RelPermalink }} 1920w"
+        sizes="100vw"
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        decoding="async"
+        class="hero-img" />
+    {{ end }}
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="container max-w-6xl mx-auto px-6 lg:px-8 pt-20 pb-24 lg:pt-32 lg:pb-40 relative">
     <div class="max-w-4xl">
       {{ with .Params.banner }}
         <p class="font-display uppercase tracking-[0.18em] text-sm text-[color:var(--ink-muted)] mb-8">
@@ -32,7 +54,7 @@
     </div>
   </div>
   {{/* full-bleed rule under hero */}}
-  <div class="h-px bg-[color:var(--border-warm)]"></div>
+  <div class="h-px bg-[color:var(--border-warm)] relative"></div>
 </section>
 
 {{/* =========================== RESEARCH THEMES =========================== */}}
@@ -100,7 +122,7 @@
 {{ $featured := where (where site.RegularPages "Section" "projects") "Params.status" "active" }}
 {{ $featured = first 3 (sort $featured "Params.weight" "asc") }}
 {{ with $featured }}
-  <section class="relative" style="background-color: var(--surface-warm);">
+  <section class="relative section-warm">
     <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
       <div class="flex flex-wrap items-baseline justify-between mb-14 gap-6">
         <div>
@@ -185,37 +207,66 @@
   <div class="h-px bg-[color:var(--border-warm)]"></div>
 </section>
 
-{{/* =========================== COLLABORATOR STRIP =========================== */}}
-<section class="relative" style="background-color: var(--canvas);">
+{{/* =========================== COLLABORATOR STRIP (Swiper ticker) =========================== */}}
+<section class="relative">
   <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
     <p class="font-display uppercase tracking-[0.18em] text-xs text-[color:var(--ink-subtle)] mb-8">
       Collaborators
     </p>
     {{ $partners := slice
-      (dict "src" "/logos/ous.svg"        "alt" "Oslo University Hospital")
-      (dict "src" "/logos/bwh.svg"        "alt" "Brigham and Women's Hospital, Harvard")
-      (dict "src" "/logos/inria.svg"      "alt" "Inria")
-      (dict "src" "/logos/kit.svg"        "alt" "Karlsruhe Institute of Technology")
-      (dict "src" "/logos/icm.svg"        "alt" "Paris Brain Institute (ICM)")
-      (dict "src" "/logos/queens.svg"     "alt" "Queen's University, Kingston")
-      (dict "src" "/logos/uc3m.svg"       "alt" "Universidad Carlos III de Madrid")
-      (dict "src" "/logos/heidelberg.svg" "alt" "University of Heidelberg")
-      (dict "src" "/logos/macerata.svg"   "alt" "Università di Macerata")
-      (dict "src" "/logos/nvidia.svg"     "alt" "NVIDIA")
+      (dict "src" "/logos/ous.png"    "alt" "Oslo University Hospital")
+      (dict "src" "/logos/bwh.png"    "alt" "Brigham and Women's Hospital, Harvard")
+      (dict "src" "/logos/inria.png"  "alt" "Inria")
+      (dict "src" "/logos/kit.png"    "alt" "Karlsruhe Institute of Technology")
+      (dict "src" "/logos/icm.png"    "alt" "Paris Brain Institute (ICM)")
+      (dict "src" "/logos/queens.png" "alt" "Queen's University, Kingston")
+      (dict "src" "/logos/uc3m.png"   "alt" "Universidad Carlos III de Madrid")
+      (dict "src" "/logos/nvidia.png" "alt" "NVIDIA")
     }}
-    <div class="overflow-x-auto -mx-6 px-6 lg:mx-0 lg:px-0 lg:overflow-visible scrollbar-thin">
-      <div class="flex items-center gap-x-12 lg:gap-x-10 lg:justify-between min-w-max lg:min-w-0">
-        {{ range $partners }}
-          <img src="{{ .src }}"
-               alt="{{ .alt }}"
-               loading="lazy"
-               class="h-10 lg:h-12 w-auto max-w-[140px] object-contain
-                      grayscale opacity-60 hover:grayscale-0 hover:opacity-100
-                      transition duration-200 ease-out flex-none" />
-        {{ end }}
+    {{/* fade-edge mask so the ticker feels infinite */}}
+    <div class="partner-strip-mask">
+      <div class="swiper partner-slider">
+        <div class="swiper-wrapper items-center">
+          {{ range $partners }}
+            <div class="swiper-slide" style="width: auto;">
+              <img src="{{ .src }}"
+                   alt="{{ .alt }}"
+                   loading="lazy"
+                   class="partner-logo h-10 lg:h-12 w-auto max-w-[160px] object-contain" />
+            </div>
+          {{ end }}
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+{{/* Swiper init for the partner ticker — Swiper is bundled in /js/script.js by Hugoplate */}}
+<script>
+  (function () {
+    function initPartnerSlider() {
+      if (typeof Swiper === 'undefined') return false;
+      const el = document.querySelector('.partner-slider');
+      if (!el || el.swiper) return true;
+      new Swiper('.partner-slider', {
+        slidesPerView: 'auto',
+        spaceBetween: 56,
+        loop: true,
+        speed: 8000,
+        autoplay: { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true },
+        freeMode: { enabled: true, momentum: false },
+        allowTouchMove: true,
+        a11y: { enabled: true, containerMessage: 'Collaborator logos' },
+      });
+      return true;
+    }
+    // Swiper loads via /js/script.js after this inline script, so retry briefly.
+    let tries = 0;
+    const retry = setInterval(() => {
+      if (initPartnerSlider() || tries > 40) clearInterval(retry);
+      tries++;
+    }, 100);
+  })();
+</script>
 
 {{ end }}

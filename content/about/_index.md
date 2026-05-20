@@ -75,8 +75,7 @@ We sustain active collaborations with hospitals, universities,
 research institutes, and industry across Europe and North America.
 The current network includes Brigham and Women's Hospital (Harvard),
 Inria, Karlsruhe Institute of Technology, the Paris Brain Institute,
-Queen's University, Universidad Carlos III de Madrid, the University
-of Heidelberg, the Università di Macerata, and NVIDIA.
+Queen's University, Universidad Carlos III de Madrid, and NVIDIA.
 
 See the [Projects](/projects/) and [Team](/team/) pages for who's
 working on what — and [Join us](/join/) if you want to do precision-
