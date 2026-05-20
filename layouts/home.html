@@ -228,14 +228,24 @@
       Collaborators
     </p>
     {{ $partners := slice
-      (dict "src" "/logos/bwh.png"    "alt" "Brigham and Women's Hospital, Harvard")
-      (dict "src" "/logos/inria.png"  "alt" "Inria")
-      (dict "src" "/logos/kit.png"    "alt" "Karlsruhe Institute of Technology")
-      (dict "src" "/logos/icm.png"    "alt" "Paris Brain Institute (ICM)")
-      (dict "src" "/logos/queens.png" "alt" "Queen's University, Kingston")
-      (dict "src" "/logos/uc3m.png"   "alt" "Universidad Carlos III de Madrid")
-      (dict "src" "/logos/uco.png"    "alt" "University of Córdoba")
-      (dict "src" "/logos/nvidia.png" "alt" "NVIDIA")
+      (dict "src" "/logos/bwh.png"    "alt" "Brigham and Women's Hospital, Harvard"
+            "url" "https://www.brighamandwomens.org")
+      (dict "src" "/logos/inria.png"  "alt" "Inria"
+            "url" "https://www.inria.fr")
+      (dict "src" "/logos/kit.png"    "alt" "Karlsruhe Institute of Technology"
+            "url" "https://www.kit.edu")
+      (dict "src" "/logos/icm.png"    "alt" "Paris Brain Institute (ICM)"
+            "url" "https://institutducerveau-icm.org")
+      (dict "src" "/logos/queens.png" "alt" "Queen's University, Kingston"
+            "url" "https://www.queensu.ca")
+      (dict "src" "/logos/ets.png"    "alt" "École de Technologie Supérieure, Montréal"
+            "url" "https://www.etsmtl.ca")
+      (dict "src" "/logos/uc3m.png"   "alt" "Universidad Carlos III de Madrid"
+            "url" "https://www.uc3m.es")
+      (dict "src" "/logos/uco.png"    "alt" "Universidad de Córdoba"
+            "url" "https://www.uco.es")
+      (dict "src" "/logos/nvidia.png" "alt" "NVIDIA"
+            "url" "https://www.nvidia.com")
     }}
     {{/* fade-edge mask so the ticker feels infinite */}}
     <div class="partner-strip-mask">
@@ -243,10 +253,14 @@
         <div class="swiper-wrapper items-center">
           {{ range $partners }}
             <div class="swiper-slide" style="width: auto;">
-              <img src="{{ .src }}"
-                   alt="{{ .alt }}"
-                   loading="lazy"
-                   class="partner-logo h-10 lg:h-12 w-auto max-w-[160px] object-contain" />
+              <a href="{{ .url }}" target="_blank" rel="noopener"
+                 aria-label="{{ .alt }}"
+                 class="block">
+                <img src="{{ .src }}"
+                     alt="{{ .alt }}"
+                     loading="lazy"
+                     class="partner-logo h-10 lg:h-12 w-auto max-w-[160px] object-contain" />
+              </a>
             </div>
           {{ end }}
         </div>
