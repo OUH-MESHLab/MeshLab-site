@@ -17,6 +17,12 @@
 ##   role              tier-specific: for associates → technical | clinical
 ##                                   for visiting → home institution name
 ##                                   for alumni  → past role
+##   specialty         (associates only) short label rendered in the
+##                     card chip — e.g. "Consultant Surgeon", "Systems
+##                     Engineer". If empty, the chip falls back to
+##                     "Clinical" / "Technical". Color of the chip is
+##                     always driven by `role`: clinical → sage,
+##                     technical → amber.
 ##   affiliation       short institutional line
 ##   photo             /images/team/<slug>.jpg (drop in static/images/team/)
 ##   bio_short         one-sentence card subtitle
@@ -93,6 +99,7 @@ associate:
   - slug: bjorn-edwin
     name: Bjørn Edwin
     role: clinical
+    specialty: HPB Surgeon
     affiliation: Prof. (MD, PhD) · OUS, UiO
     photo: /images/team/bjorn.jpg
     bio_short: Clinical research head; surgical-software collaborator on liver-resection projects.
@@ -176,6 +183,7 @@ associate:
   - slug: gabriella-dalbenzio
     name: Gabriella d'Albenzio
     role: technical
+    specialty: Surgical Planning
     affiliation: Dr. (PhD) · Queen's University, Canada
     photo: /images/team/gabriella.jpg
     bio_short: Liver-resection planning and surgical-cut geometry; now at Queen's.
@@ -196,6 +204,7 @@ associate:
   - slug: khai-duong
     name: Khai Duong
     role: technical
+    specialty: Software Engineer
     affiliation: The Intervention Centre, OUS
     bio_short: Patient-monitoring data extraction and lab infrastructure.
     bio: |
@@ -214,9 +223,10 @@ associate:
         title: SystoleOS
     weight: 80
 
-  - slug: omar
-    name: Omar  # TODO: last name?
+  - slug: omar-el-hajj
+    name: Omar El Hajj
     role: technical
+    specialty: Systems Engineer
     affiliation: The Intervention Centre, OUS
     bio_short: SystoleOS — operating-system platform for medical applications.
     bio: |
@@ -230,9 +240,10 @@ associate:
         title: SystoleOS
     weight: 90
 
-  - slug: eleonore-dufresne
-    name: Eléonore Dufresne
+  - slug: eleonore-germond
+    name: Eléonore Germond
     role: technical
+    specialty: Simulation & Robotics
     affiliation: The Intervention Centre, OUS — joint with Inria
     bio_short: Soft-tissue simulation + robotics integration in 3D Slicer.
     bio: |

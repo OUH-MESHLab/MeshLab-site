@@ -126,8 +126,13 @@
                 </span>
               </div>
             {{ end }}
-            <span class="inline-block w-fit bg-[color:var(--accent-tint)] text-[color:var(--ink)] text-[0.7rem] uppercase tracking-wider font-medium rounded px-2 py-0.5 mb-2">
-              {{ if eq .role "clinical" }}Clinical{{ else }}Technical{{ end }}
+            {{ $isClinical := eq .role "clinical" }}
+            {{ $fallback := "Technical" }}
+            {{ if $isClinical }}{{ $fallback = "Clinical" }}{{ end }}
+            {{ $label := .specialty | default $fallback }}
+            <span class="inline-block w-fit text-[color:var(--ink)] text-[0.7rem] uppercase tracking-wider font-medium rounded px-2 py-0.5 mb-2"
+                  style="background-color: {{ if $isClinical }}var(--clinical-tint){{ else }}var(--accent-tint){{ end }};">
+              {{ $label }}
             </span>
             <h3 class="font-display text-[1.25rem] leading-[1.2] font-semibold text-[color:var(--ink)] mb-1 group-hover:text-[color:var(--accent)] transition-colors">
               {{ .name }}

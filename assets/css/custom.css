@@ -56,6 +56,15 @@
   --accent-tint-soft: #FDF1DA;
   --accent-stroke: #E8B86B;
 
+  /* Clinical family — muted sage ~135° hue.
+   * Single semantic departure from the warm-amber commitment, used
+   * exclusively to flag clinical roles on the Team page (operating-
+   * room green, low saturation; never used as decoration). */
+  --clinical: #5E7556;
+  --clinical-tint: #C9D8C2;
+  --clinical-tint-soft: #E5EEDF;
+  --clinical-stroke: #A8B89E;
+
   /* Surfaces */
   --canvas: #FBFAF6;
   --surface: #FFFFFF;
