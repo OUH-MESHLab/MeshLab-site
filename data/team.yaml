@@ -4,9 +4,10 @@
 ## up changes on the next Hugo rebuild. Order within each tier follows
 ## "weight" ascending.
 ##
-## Tiers:
-##   head            — the head of the group (one entry)
-##   associate       — current associate members, with role: technical | clinical
+## Tiers (matches the formal group description, 2026-05-20 PDF):
+##   head            — the head of the group, "Group Leader" (one entry)
+##   group           — "Group Member" tier (core lab members)
+##   associate       — "Associated Member" tier; role: technical | clinical
 ##   visiting        — visiting researchers / external students, time-bounded
 ##   alumni          — past members, compact name + period rendering
 ##
@@ -16,7 +17,7 @@
 ##   role              tier-specific: for associates → technical | clinical
 ##                                   for visiting → home institution name
 ##                                   for alumni  → past role
-##   affiliation       short institutional line (e.g., "Oslo University Hospital")
+##   affiliation       short institutional line
 ##   photo             /images/team/<slug>.jpg (drop in static/images/team/)
 ##   bio_short         one-sentence card subtitle
 ##   bio               multi-line HTML for the modal body
@@ -32,8 +33,8 @@
 head:
   - slug: rafael-palomar
     name: Rafael Palomar
-    role: Head of MESH|Lab
-    affiliation: The Intervention Centre, Oslo University Hospital
+    role: Group Leader · Assoc. Prof. (PhD)
+    affiliation: The Intervention Centre, Oslo University Hospital · NTNU
     photo: /images/team/rafael-palomar.jpg
     bio_short: Translating clinical needs into precision-medicine software.
     bio: |
@@ -60,10 +61,31 @@ head:
         title: SlicerLiver
       - slug: slicersofa-ros
         title: SlicerSOFA + ROS
-    orcid: ""
     github: rafaelpalomar
-    scholar: ""
     email: rafael.palomar@ous-research.no
+    weight: 1
+
+group:
+  - slug: ruoyan-meng
+    name: Ruoyan Meng
+    role: Group Member · PhD Student
+    affiliation: The Intervention Centre, OUS · NTNU
+    photo: /images/team/ruoyan.jpg
+    bio_short:  data integration in 3D Slicer; liver imaging.
+    bio: |
+      <p>Ruoyan is a PhD student jointly hosted at the Intervention
+      Centre, Oslo University Hospital and NTNU. She leads the
+       module — bringing  acquisitions into
+      the 3D Slicer environment alongside conventional radiological
+      imagery — and contributes to SlicerLiver.</p>
+    expertise:
+      - Medical imaging
+      - 3D Slicer extensions
+    projects:
+      - slug: 
+        title: 
+      - slug: slicerliver
+        title: SlicerLiver
     weight: 1
 
 associate:
@@ -71,15 +93,15 @@ associate:
   - slug: bjorn-edwin
     name: Bjørn Edwin
     role: clinical
-    affiliation: Professor, Consultant Surgeon · The Intervention Centre, OUS
+    affiliation: Prof. (MD, PhD) · OUS, UiO
     photo: /images/team/bjorn.jpg
     bio_short: Clinical research head; surgical-software collaborator on liver-resection projects.
     bio: |
       <p>Bjørn von Gohren Edwin is Professor and Consultant Surgeon at
-      Oslo University Hospital, head of the Section for Clinical Research
-      at the Intervention Centre, and a clinical collaborator on
-      MESH|Lab's surgical-software work — most directly on liver
-      resection planning (SlicerLiver).</p>
+      Oslo University Hospital and the University of Oslo, head of the
+      Section for Clinical Research at the Intervention Centre, and a
+      clinical collaborator on MESH|Lab's surgical-software work — most
+      directly on liver-resection planning (SlicerLiver).</p>
     expertise:
       - Hepato-pancreato-biliary surgery
       - Clinical research
@@ -89,55 +111,87 @@ associate:
     email: bjoedw@ous-hf.no
     weight: 10
 
+  - slug: davit-aghayan
+    name: Davit Aghayan
+    role: clinical
+    affiliation: Dr. (MD, PhD) · The Intervention Centre, OUS
+    photo: /images/team/davit.jpg
+    bio_short: Clinical collaborator on liver-surgery research.
+    bio: |
+      <p>Dr. Davit Aghayan is a clinical collaborator at the
+      Intervention Centre, Oslo University Hospital. He contributes
+      to MESH|Lab's liver-surgery research stream.</p>
+    expertise: []
+    projects: []
+    weight: 20
+
+  - slug: egidijus-pelanis
+    name: Egidijus Pelanis
+    role: clinical
+    affiliation: Dr. (MD, PhD) · The Intervention Centre, OUS
+    bio_short: Clinical collaborator at the Intervention Centre, OUS.
+    bio: |
+      <p>Dr. Egidijus Pelanis is a clinical collaborator at the
+      Intervention Centre, Oslo University Hospital.</p>
+    expertise: []
+    projects: []
+    weight: 30
+
+  - slug: ingrid-shroeder-hansen
+    name: Ingrid Shroeder-Hansen
+    role: clinical
+    affiliation: Dr. (MD) · The Intervention Centre, OUS
+    bio_short: Clinical collaborator at the Intervention Centre, OUS.
+    bio: |
+      <p>Dr. Ingrid Shroeder-Hansen is a clinical collaborator at the
+      Intervention Centre, Oslo University Hospital.</p>
+    expertise: []
+    projects: []
+    weight: 40
+
+  - slug: sarkis-drejan
+    name: Sarkis Drejan
+    role: clinical
+    affiliation: Dr. · The Intervention Centre, OUS
+    bio_short: Clinical collaborator at the Intervention Centre, OUS.
+    bio: |
+      <p>Dr. Sarkis Drejan is a clinical collaborator at the
+      Intervention Centre, Oslo University Hospital.</p>
+    expertise: []
+    projects: []
+    weight: 50
+
+  - slug: aasmund-fretland
+    name: Aasmund Fretland
+    role: clinical
+    affiliation: Dr. (MD, PhD) · The Intervention Centre, OUS
+    bio_short: Clinical collaborator at the Intervention Centre, OUS.
+    bio: |
+      <p>Dr. Aasmund Fretland is a clinical collaborator at the
+      Intervention Centre, Oslo University Hospital.</p>
+    expertise: []
+    projects: []
+    weight: 60
+
   - slug: gabriella-dalbenzio
     name: Gabriella d'Albenzio
     role: technical
-    affiliation: The Intervention Centre, OUS
+    affiliation: Dr. (PhD) · Queen's University, Canada
     photo: /images/team/gabriella.jpg
-    bio_short: Liver-resection planning, segmentation and surgical-cut geometry.
+    bio_short: Liver-resection planning and surgical-cut geometry; now at Queen's.
     bio: |
-      <p>Gabriella works on the SlicerLiver pipeline — liver
+      <p>Dr. Gabriella d'Albenzio works on liver-resection planning —
       segmentation, vessel-tree analysis, and the geometry of the
-      planned resection surface.</p>
+      planned resection surface (SlicerLiver). She is now hosted at
+      Queen's University in Canada and continues as an associated
+      member of MESH|Lab.</p>
     expertise:
       - Surgical planning
       - Medical imaging
     projects:
       - slug: slicerliver
         title: SlicerLiver
-    weight: 20
-
-  - slug: ruoyan-meng
-    name: Ruoyan Meng
-    role: technical
-    affiliation: The Intervention Centre, OUS
-    photo: /images/team/ruoyan.jpg
-    bio_short:  data integration in 3D Slicer; liver imaging.
-    bio: |
-      <p>Ruoyan leads the  module — bringing 
-      acquisitions into the 3D Slicer environment alongside conventional
-      radiological imagery — and contributes to SlicerLiver.</p>
-    expertise:
-      - Medical imaging
-      - 3D Slicer extensions
-    projects:
-      - slug: 
-        title: 
-      - slug: slicerliver
-        title: SlicerLiver
-    weight: 30
-
-  - slug: davit
-    name: Davit  # TODO: last name?
-    role: clinical
-    affiliation: The Intervention Centre, OUS  # TODO: confirm affiliation
-    photo: /images/team/davit.jpg
-    bio_short: Clinical collaborator on liver-resection research.  # TODO: refine
-    bio: |
-      <p><em>Bio pending — please refine in <code>data/team.yaml</code>.</em></p>
-    expertise: []
-    projects: []
-    weight: 40
+    weight: 70
 
   - slug: khai-duong
     name: Khai Duong
@@ -158,7 +212,7 @@ associate:
         title: 
       - slug: systoleos
         title: SystoleOS
-    weight: 50
+    weight: 80
 
   - slug: omar
     name: Omar  # TODO: last name?
@@ -174,7 +228,7 @@ associate:
     projects:
       - slug: systoleos
         title: SystoleOS
-    weight: 60
+    weight: 90
 
   - slug: eleonore-dufresne
     name: Eléonore Dufresne
@@ -193,7 +247,7 @@ associate:
     projects:
       - slug: slicersofa-ros
         title: SlicerSOFA + ROS
-    weight: 70
+    weight: 100
 
 visiting:
   ## Add visiting researchers / external students here. Example:

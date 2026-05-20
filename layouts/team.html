@@ -58,6 +58,51 @@
   </section>
 {{ end }}
 
+{{/* =========================== GROUP MEMBERS =========================== */}}
+{{ with $team.group }}
+  <section class="relative">
+    <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
+      <p class="font-display uppercase tracking-[0.18em] text-xs text-[color:var(--ink-subtle)] mb-8">
+        Group members
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
+        {{ range sort . "weight" "asc" }}
+          <button type="button"
+                  data-modal-target="modal-{{ .slug }}"
+                  class="team-card group text-left bg-[color:var(--surface)] border border-[color:var(--border-warm)] rounded-md p-6 lg:p-7 hover:shadow-[0_1px_2px_rgb(0_0_0_/_0.04)] transition-shadow duration-150 flex gap-5 items-start cursor-pointer">
+            {{ if .photo }}
+              <img src="{{ .photo }}" alt="" loading="lazy"
+                   class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-md flex-none" />
+            {{ else }}
+              <div class="w-20 h-20 lg:w-24 lg:h-24 rounded-md flex-none flex items-center justify-center"
+                   style="background-color: var(--accent-tint-soft); color: var(--accent);">
+                <span class="font-display text-xl font-semibold">
+                  {{ slicestr (index (split .name " ") 0) 0 1 }}
+                </span>
+              </div>
+            {{ end }}
+            <div class="flex-1 min-w-0">
+              <p class="font-display uppercase tracking-[0.14em] text-[0.7rem] text-[color:var(--ink-subtle)] mb-2">
+                {{ .role }}
+              </p>
+              <h2 class="font-display text-[1.35rem] lg:text-[1.5rem] leading-[1.15] font-semibold text-[color:var(--ink)] mb-1 group-hover:text-[color:var(--accent)] transition-colors">
+                {{ .name }}
+              </h2>
+              <p class="font-body text-xs text-[color:var(--ink-muted)] mb-2">
+                {{ .affiliation }}
+              </p>
+              <p class="font-body text-sm leading-[1.55] text-[color:var(--ink)]">
+                {{ .bio_short }}
+              </p>
+            </div>
+          </button>
+        {{ end }}
+      </div>
+    </div>
+    <div class="h-px bg-[color:var(--border-warm)]"></div>
+  </section>
+{{ end }}
+
 {{/* =========================== ASSOCIATE MEMBERS =========================== */}}
 <section class="relative">
   <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
@@ -168,6 +213,7 @@
 {{/* =========================== MODALS =========================== */}}
 {{ $allMembers := slice }}
 {{ with $team.head }}{{ $allMembers = $allMembers | append . }}{{ end }}
+{{ with $team.group }}{{ $allMembers = $allMembers | append . }}{{ end }}
 {{ with $team.associate }}{{ $allMembers = $allMembers | append . }}{{ end }}
 {{ with $team.visiting }}{{ $allMembers = $allMembers | append . }}{{ end }}
 
