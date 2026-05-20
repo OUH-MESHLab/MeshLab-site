@@ -1,0 +1,39 @@
+<!doctype html>
+<html
+  itemscope
+  class="{{- if not site.Params.theme_switcher -}}
+    {{- site.Params.theme_default -}}
+  {{- end -}}"
+  lang="{{ site.LanguageCode | default `en-US` }}"
+  itemtype="http://schema.org/WebPage">
+  <head>
+    {{ partial "essentials/head.html" . }}
+    {{ partialCached "essentials/style.html" . }}
+  </head>
+
+  <body>
+    <a href="#main"
+       class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:rounded-md focus:bg-[color:var(--accent)] focus:text-[color:var(--canvas)] focus:font-medium focus:shadow-md focus:outline focus:outline-2 focus:outline-[color:var(--accent-stroke)] focus:outline-offset-2">
+      Skip to main content
+    </a>
+
+    {{ if hugo.IsProduction }}
+      {{ partialCached "preloader.html" . }}
+      {{ partialCached "gtm-noscript.html" . }}
+    {{ else }}
+      {{ partial "preloader.html" . }}
+      {{ partial "components/tw-size-indicator.html" . }}
+    {{ end }}
+
+    {{ partialCached "announcement.html" . }}
+
+    {{ partial "essentials/header.html" . }}
+    {{ partial "search-modal.html" (dict "Context" . ) }}
+
+    <main id="main">{{ block "main" . }}{{ end }}</main>
+
+    {{ partial "essentials/footer.html" . }}
+
+    {{ partialCached "essentials/script.html" . }}
+  </body>
+</html>

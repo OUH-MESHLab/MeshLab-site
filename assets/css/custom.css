@@ -1,1 +1,98 @@
-/* Add your own custom styles here */
+/* MESH|Lab — local fonts + DESIGN.md token overrides
+ * Loaded last in main.css (after generated-theme.css), so any token we set here wins.
+ */
+
+/* ---- Self-hosted fonts ---- */
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Roboto-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Roboto-Italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/Roboto-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/Roboto-Bold.woff2") format("woff2");
+}
+
+/* Dosis is a variable font (weight axis 200–800). One file covers Regular + SemiBold. */
+@font-face {
+  font-family: "Dosis";
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("/fonts/Dosis-VF.woff2") format("woff2-variations"),
+       url("/fonts/Dosis-VF.woff2") format("woff2");
+}
+
+/* ---- Brand token overrides (DESIGN.md is the source of truth) ----
+ * Hugoplate's generated theme registers --color-primary, --color-body, etc.
+ * We add the brand-side accent ladder on top.
+ */
+
+:root {
+  /* Accent family — warm amber ~30° hue */
+  --accent: #B85C00;
+  --accent-hover: #8F4700;
+  --accent-tint: #F8DCA8;
+  --accent-tint-soft: #FDF1DA;
+  --accent-stroke: #E8B86B;
+
+  /* Surfaces */
+  --canvas: #FBFAF6;
+  --surface: #FFFFFF;
+  --surface-warm: #F5F1E8;
+
+  /* Ink (warm near-blacks) */
+  --ink: #1A1A18;
+  --ink-muted: #5E5C56;
+  --ink-subtle: #8A8780;
+
+  /* Borders */
+  --border-warm: #E8E4DA;
+  --border-strong: #C8C3B6;
+}
+
+/* Force the warm canvas onto body, in case Hugoplate's generated theme
+ * mounts its own value on body element. */
+body {
+  background-color: var(--canvas);
+  color: var(--ink);
+}
+
+/* Wordmark + display headings in Dosis SemiBold; body in Roboto. */
+h1, h2, h3, h4, h5, h6,
+.font-display {
+  font-family: "Dosis", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+/* Headlines stand alone — no text drop-shadows. */
+h1, h2, h3, h4, h5, h6 { text-shadow: none; }
+
+/* Default underline-offset for inline links */
+a {
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-thickness 120ms ease-out;
+}
+a:hover { text-decoration-thickness: 2px; }

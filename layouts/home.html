@@ -1,0 +1,214 @@
+{{ define "main" }}
+
+{{/* ============================== HERO ============================== */}}
+<section class="relative">
+  <div class="container max-w-6xl mx-auto px-6 lg:px-8 pt-20 pb-24 lg:pt-32 lg:pb-40">
+    <div class="max-w-4xl">
+      {{ with .Params.banner }}
+        <p class="font-display uppercase tracking-[0.18em] text-sm text-[color:var(--ink-muted)] mb-8">
+          MESH|Lab — Oslo University Hospital
+        </p>
+        <h1 class="font-display text-[clamp(2.5rem,5.2vw,4.4rem)] leading-[1.05] font-semibold tracking-tight text-[color:var(--ink)] mb-8">
+          {{ .title | markdownify }}
+        </h1>
+        <p class="font-body text-[1.25rem] leading-[1.55] text-[color:var(--ink-muted)] max-w-3xl mb-12">
+          {{ .content | markdownify }}
+        </p>
+        {{ with .button }}
+          {{ if .enable }}
+            <div class="flex items-baseline gap-8">
+              <a class="font-body font-medium text-[color:var(--accent)] hover:text-[color:var(--accent-hover)] text-lg underline decoration-[color:var(--accent-stroke)] decoration-2 underline-offset-[6px]"
+                 href="{{ .link | absURL }}">
+                {{ .label }} →
+              </a>
+              <a class="font-body text-[color:var(--ink-muted)] hover:text-[color:var(--ink)] text-lg"
+                 href="/contact/">
+                Get in touch
+              </a>
+            </div>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+  {{/* full-bleed rule under hero */}}
+  <div class="h-px bg-[color:var(--border-warm)]"></div>
+</section>
+
+{{/* =========================== RESEARCH THEMES =========================== */}}
+{{ with .Params.features }}
+  <section class="relative" id="research-themes">
+    <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+      <div class="grid grid-cols-12 gap-10 lg:gap-16 mb-14">
+        <div class="col-span-12 lg:col-span-4">
+          <p class="font-display uppercase tracking-[0.18em] text-sm text-[color:var(--ink-muted)] mb-3">
+            Research
+          </p>
+          <h2 class="font-display text-[2.2rem] lg:text-[2.6rem] leading-[1.1] font-semibold tracking-tight text-[color:var(--ink)]">
+            Four themes, one stack.
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-8 lg:pt-2">
+          <p class="font-body text-[1.05rem] leading-[1.65] text-[color:var(--ink-muted)] max-w-2xl">
+            Our work spans operating systems, clinical infrastructure, and end-user
+            medical applications. Each project lives under one or more of these themes;
+            many sit across the boundary deliberately.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
+        {{ range $i, $f := . }}
+          <article class="group relative pl-6 lg:pl-8 border-l border-[color:var(--border-warm)] hover:border-[color:var(--accent-stroke)] transition-colors duration-150">
+            <p class="font-display uppercase tracking-[0.16em] text-xs text-[color:var(--ink-subtle)] mb-3">
+              0{{ add $i 1 }} · {{ if eq $i 0 }}Systems{{ else if eq $i 1 }}Surgery{{ else if eq $i 2 }}Simulation{{ else }}Data{{ end }}
+            </p>
+            <h3 class="font-display text-[1.65rem] lg:text-[1.85rem] leading-[1.15] font-semibold text-[color:var(--ink)] mb-4">
+              <a href="{{ with $f.button }}{{ .link | absURL }}{{ end }}"
+                 class="hover:text-[color:var(--accent)] transition-colors duration-150 no-underline">
+                {{ $f.title | markdownify }}
+              </a>
+            </h3>
+            <p class="font-body text-[1rem] leading-[1.6] text-[color:var(--ink-muted)] mb-5 max-w-prose">
+              {{ $f.content | markdownify }}
+            </p>
+            <ul class="font-body text-[0.95rem] leading-[1.55] text-[color:var(--ink)] space-y-1.5 mb-6">
+              {{ range $f.bulletpoints }}
+                <li class="flex items-baseline gap-2">
+                  <span class="text-[color:var(--accent-stroke)] flex-none">—</span>
+                  <span>{{ . | markdownify }}</span>
+                </li>
+              {{ end }}
+            </ul>
+            {{ with $f.button }}
+              {{ if .enable }}
+                <a href="{{ .link | absURL }}"
+                   class="font-body font-medium text-[0.95rem] text-[color:var(--accent)] hover:text-[color:var(--accent-hover)] underline decoration-[color:var(--accent-stroke)] decoration-1 underline-offset-4 hover:decoration-2">
+                  {{ .label }} →
+                </a>
+              {{ end }}
+            {{ end }}
+          </article>
+        {{ end }}
+      </div>
+    </div>
+    <div class="h-px bg-[color:var(--border-warm)]"></div>
+  </section>
+{{ end }}
+
+{{/* =========================== FEATURED PROJECTS =========================== */}}
+{{ $featured := where (where site.RegularPages "Section" "projects") "Params.status" "active" }}
+{{ $featured = first 3 (sort $featured "Params.weight" "asc") }}
+{{ with $featured }}
+  <section class="relative" style="background-color: var(--surface-warm);">
+    <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+      <div class="flex flex-wrap items-baseline justify-between mb-14 gap-6">
+        <div>
+          <p class="font-display uppercase tracking-[0.18em] text-sm text-[color:var(--ink-muted)] mb-3">
+            Featured
+          </p>
+          <h2 class="font-display text-[2.2rem] lg:text-[2.6rem] leading-[1.1] font-semibold tracking-tight text-[color:var(--ink)]">
+            Projects in flight.
+          </h2>
+        </div>
+        <a href="/projects/"
+           class="font-body font-medium text-[color:var(--accent)] hover:text-[color:var(--accent-hover)] underline decoration-[color:var(--accent-stroke)] decoration-1 underline-offset-4 hover:decoration-2">
+          All projects →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        {{ range . }}
+          <article class="bg-[color:var(--surface)] border border-[color:var(--border-warm)] rounded-md p-6 lg:p-7 hover:shadow-[0_1px_2px_rgb(0_0_0_/_0.04)] transition-shadow duration-150 flex flex-col">
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              {{ range .Params.themes }}
+                <span class="inline-block bg-[color:var(--accent-tint)] text-[color:var(--ink)] text-[0.7rem] uppercase tracking-wider font-medium rounded px-2 py-0.5">
+                  {{ . | replaceRE "-" " " | title }}
+                </span>
+              {{ end }}
+            </div>
+            <h3 class="font-display text-[1.4rem] leading-[1.2] font-semibold mb-3 text-[color:var(--ink)]">
+              <a href="{{ .RelPermalink }}"
+                 class="hover:text-[color:var(--accent)] no-underline transition-colors duration-150">
+                {{ .Title }}
+              </a>
+            </h3>
+            <p class="font-body text-sm text-[color:var(--ink-muted)] mb-4">
+              {{ with .Params.lead }}{{ . }}{{ end }}
+              {{ with .Params.year_start }} · {{ . }}{{ end }}{{ with .Params.year_end }}–{{ . }}{{ else }}{{ with .Params.year_start }}–{{ end }}{{ end }}
+            </p>
+            <p class="font-body text-[0.95rem] leading-[1.55] text-[color:var(--ink)] flex-1 mb-5">
+              {{ .Params.description }}
+            </p>
+            <div>
+              <a href="{{ .RelPermalink }}"
+                 class="font-body font-medium text-[0.9rem] text-[color:var(--accent)] hover:text-[color:var(--accent-hover)] underline decoration-[color:var(--accent-stroke)] decoration-1 underline-offset-4 hover:decoration-2">
+                Read more →
+              </a>
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+    <div class="h-px bg-[color:var(--border-warm)]"></div>
+  </section>
+{{ end }}
+
+{{/* =========================== SELECTED PUBLICATIONS =========================== */}}
+<section class="relative">
+  <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+    <div class="flex flex-wrap items-baseline justify-between mb-12 gap-6">
+      <div>
+        <p class="font-display uppercase tracking-[0.18em] text-sm text-[color:var(--ink-muted)] mb-3">
+          Publications
+        </p>
+        <h2 class="font-display text-[2.2rem] lg:text-[2.6rem] leading-[1.1] font-semibold tracking-tight text-[color:var(--ink)]">
+          Selected work.
+        </h2>
+      </div>
+      <a href="/publications/"
+         class="font-body font-medium text-[color:var(--accent)] hover:text-[color:var(--accent-hover)] underline decoration-[color:var(--accent-stroke)] decoration-1 underline-offset-4 hover:decoration-2">
+        Full list →
+      </a>
+    </div>
+
+    <div class="max-w-3xl">
+      <p class="font-body text-[0.95rem] leading-[1.65] text-[color:var(--ink-muted)]">
+        A curated reading list is in preparation. Until then, the full track is
+        available via each team member's ORCID and Google Scholar profile
+        (linked from the <a href="/team/" class="text-[color:var(--accent)] underline decoration-1 underline-offset-2">Team</a> page),
+        and per-project publication links live on each
+        <a href="/projects/" class="text-[color:var(--accent)] underline decoration-1 underline-offset-2">project</a> page.
+      </p>
+    </div>
+  </div>
+  <div class="h-px bg-[color:var(--border-warm)]"></div>
+</section>
+
+{{/* =========================== PARTNER STRIP =========================== */}}
+<section class="relative" style="background-color: var(--canvas);">
+  <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
+    <p class="font-display uppercase tracking-[0.18em] text-xs text-[color:var(--ink-subtle)] text-center mb-8">
+      Collaborators
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-5 lg:gap-x-14">
+      {{ $partners := slice
+        "Oslo University Hospital"
+        "BWH Harvard"
+        "Inria"
+        "KIT"
+        "Paris Brain Institute"
+        "Queen's University"
+        "UC3M"
+        "NVIDIA"
+      }}
+      {{ range $partners }}
+        <span class="font-display uppercase tracking-[0.08em] text-sm text-[color:var(--ink-muted)] whitespace-nowrap">
+          {{ . }}
+        </span>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ end }}

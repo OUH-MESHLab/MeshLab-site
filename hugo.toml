@@ -1,7 +1,7 @@
 canonifyURLs = false
 relativeURLs = false
 baseURL = "/"
-title = "MeshLab"
+title = "MESH|Lab"
 theme = "hugoplate"
 timeZone = "Europe/Oslo"
 # post excerpt
@@ -12,12 +12,6 @@ languageCode = 'en-us'
 [services]
 [services.googleAnalytics]
 ID = ''
-
-[services.disqus]
-# we use disqus to show comments in blog posts. 
-# To install disqus please follow this tutorial:
-# https://portfolio.peter-baumgartner.net/2017/09/10/how-to-install-disqus-on-hugo/
-shortname = 'themefisher-template' 
 
 [permalinks.page]
 "pages" = "/:slugorcontentbasename/"
