@@ -9,6 +9,7 @@ members: ["Ruoyan Meng", "Gabriella d'Albenzio"]
 partners: []
 year_start: 2020
 image: "/images/projects/slicerliver.png"
+logo: "/images/projects/slicerliver.png"
 repo: "https://github.com/ALive-research/SlicerLiver"
 weight: 2
 ---
@@ -22,5 +23,4 @@ radiologists already use.
 
 The project sits at the centre of MESH|Lab's surgical-planning work
 and connects to the lab's downstream simulation
-([SlicerSOFA + ROS](/projects/slicersofa-ros/)) and navigation
-([](/projects//)) pipelines.
+([SlicerSOFA + SlicerROS2](/projects/slicersofa-slicerros2/)) pipeline.

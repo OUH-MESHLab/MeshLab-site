@@ -50,7 +50,7 @@ head:
       medical computing, and the long-term maintenance of open-source
       clinical software.</p>
       <p>He is the lead maintainer of SystoleOS, SlicerLiver,
-      SlicerSOFA + ROS, and the Brainlab/SystoleOS navigation bridge.
+      SlicerSOFA + SlicerROS2, and the Brainlab/SystoleOS navigation bridge.
       Externally he collaborates with Brigham and Women's Hospital,
       Inria, Karlsruhe Institute of Technology, the Paris Brain
       Institute, and Queen's University, and serves on European
@@ -65,8 +65,8 @@ head:
         title: SystoleOS
       - slug: slicerliver
         title: SlicerLiver
-      - slug: slicersofa-ros
-        title: SlicerSOFA + ROS
+      - slug: slicersofa-slicerros2
+        title: SlicerSOFA + SlicerROS2
     github: rafaelpalomar
     email: rafael.palomar@ous-research.no
     weight: 1
@@ -77,19 +77,16 @@ group:
     role: Group Member · PhD Student
     affiliation: The Intervention Centre, OUS · NTNU
     photo: /images/team/ruoyan.jpg
-    bio_short:  data integration in 3D Slicer; liver imaging.
+    bio_short: Liver-resection planning and visualisation in 3D Slicer.
     bio: |
       <p>Ruoyan is a PhD student jointly hosted at the Intervention
-      Centre, Oslo University Hospital and NTNU. She leads the
-       module — bringing  acquisitions into
-      the 3D Slicer environment alongside conventional radiological
-      imagery — and contributes to SlicerLiver.</p>
+      Centre, Oslo University Hospital and NTNU. She contributes to
+      SlicerLiver — patient-specific liver-resection planning,
+      visualisation, and the geometry behind virtual resections.</p>
     expertise:
       - Medical imaging
       - 3D Slicer extensions
     projects:
-      - slug: 
-        title: 
       - slug: slicerliver
         title: SlicerLiver
     weight: 1
@@ -208,17 +205,15 @@ associate:
     affiliation: The Intervention Centre, OUS
     bio_short: Patient-monitoring data extraction and lab infrastructure.
     bio: |
-      <p>Khai works on the MONK system (Nihon Kohden waveform extraction),
-       visualisation infrastructure, and SystoleOS — the lab's
-      foundational systems and clinical-data integration projects.</p>
+      <p>Khai works on the MONK system (Nihon Kohden waveform extraction)
+      and SystoleOS — the lab's foundational systems and clinical-data
+      integration projects.</p>
     expertise:
       - Software engineering
       - Patient monitoring
     projects:
       - slug: monk-nihon-kohden
         title: MONK
-      - slug: 
-        title: 
       - slug: systoleos
         title: SystoleOS
     weight: 80
@@ -247,7 +242,7 @@ associate:
     affiliation: The Intervention Centre, OUS — joint with Inria
     bio_short: Soft-tissue simulation + robotics integration in 3D Slicer.
     bio: |
-      <p>Eléonore works on the SlicerSOFA + ROS integration — bringing
+      <p>Eléonore works on the SlicerSOFA + SlicerROS2 integration — bringing
       deformable-tissue simulation and robotic control into the
       planning environment surgeons already use. The work is conducted
       jointly with Inria.</p>
@@ -256,26 +251,26 @@ associate:
       - Robotics
       - SOFA framework
     projects:
-      - slug: slicersofa-ros
-        title: SlicerSOFA + ROS
+      - slug: slicersofa-slicerros2
+        title: SlicerSOFA + SlicerROS2
     weight: 100
 
 visiting:
   ## Add visiting researchers / external students here. Example:
   ##
-  # - slug: jonas-kit
-  #   name: Jonas Example
-  #   role: KIT (Karlsruhe Institute of Technology)
+  # - slug: example-visitor
+  #   name: First Last
+  #   role: Karlsruhe Institute of Technology
   #   affiliation: MSc Student
-  #   photo: /images/team/jonas-kit.jpg
-  #   bio_short: Electrode planning, joint with the Paris Brain Institute.
+  #   photo: /images/team/example-visitor.jpg
+  #   bio_short: Topic, joint with <partner institution>.
   #   bio: |
-  #     <p>Working on the  project under Rafael Palomar,
-  #     based at Karlsruhe Institute of Technology.</p>
-  #   expertise: [Electrode planning, Surgical planning]
+  #     <p>Working with MESH|Lab on <project> under Rafael Palomar,
+  #     based at <home institution>.</p>
+  #   expertise: [Tag, Tag]
   #   projects:
-  #     - slug: 
-  #       title: 
+  #     - slug: slicerliver
+  #       title: SlicerLiver
   #   period: "2025–"
   #   weight: 10
 

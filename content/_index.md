@@ -21,7 +21,6 @@ features:
     content: "Reproducible, declaratively-configured operating systems and platforms for medical computing — built to meet the documentation and traceability demands of clinical-software regulation."
     bulletpoints:
       - "SystoleOS — the lab's medical-applications OS"
-      - " — clinical-research visualisation infrastructure"
       - "Long-term maintenance, not paper-publish-and-go"
     button:
       enable: true
@@ -33,8 +32,6 @@ features:
     content: "Patient-specific surgical planning and intra-operative guidance, built on 3D Slicer and integrated with the navigation hardware operating rooms already use."
     bulletpoints:
       - "SlicerLiver — patient-specific liver-resection planning"
-      - " — stereotactic electrode-trajectory planning"
-      - " — open planning meets certified navigation"
     button:
       enable: true
       label: "Explore the theme"
@@ -44,7 +41,7 @@ features:
     image: "/images/themes/simulation-robotics.png"
     content: "Soft-tissue simulation under a surgeon's hand, wired through ROS 2 to real robots — research-bench economics for surgical-robotics investigation."
     bulletpoints:
-      - "SlicerSOFA + ROS — simulation and robotics in one scene"
+      - "SlicerSOFA + SlicerROS2 — simulation and robotics in one scene"
       - "Consumer-grade haptics for research-grade behaviour"
       - "Reproducible from a single SystoleOS manifest"
     button:
@@ -57,8 +54,6 @@ features:
     content: "Getting clinical data — bedside-monitor waveforms, imaging archives, domain-specific signal sources — into the form research and AI workflows actually need."
     bulletpoints:
       - "MONK — Nihon Kohden waveform extraction"
-      - " — clinical-research signals in radiology software"
-      - "TCIA augmentation for representative imaging benchmarks"
     button:
       enable: true
       label: "Explore the theme"

@@ -21,12 +21,6 @@ train over it.
   recently the Nihon Kohden monitoring family, where we extract
   waveform data into open, structured formats for retrospective
   research.
-- **Image-archive augmentation** for medical-imaging AI: we use
-  public sources such as TCIA to enlarge under-represented cohorts
-  in segmentation and detection benchmarks.
-- **Domain-specific Slicer modules** for clinical signal sources
-  that do not yet have a home in mainstream radiology software
-  ( and similar).
 
 ## Why it matters
 

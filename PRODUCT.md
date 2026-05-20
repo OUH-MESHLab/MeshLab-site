@@ -48,15 +48,13 @@ The lab operates across three layers — **OS / infrastructure / end-user
 medical applications** — and frames its work along four research themes:
 
 1. **Systems & infrastructure** — reproducible, regulated operating
-   systems and platforms for medical computing (SystoleOS, ).
+   systems and platforms for medical computing (SystoleOS).
 2. **Image-guided surgery & navigation** — Slicer-based planning and
-   intra-operative guidance (SlicerLiver, electrode planning, Brainlab
-   integration).
+   intra-operative guidance (SlicerLiver).
 3. **Surgical simulation & robotics** — soft-tissue simulation,
    haptics, ROS-based research benches (SlicerSOFA, SlicerROS2).
 4. **Clinical data & AI** — interoperability with bedside devices and
-   ML over imaging archives (Nihon-Kohden waveform extraction,
-   , TCIA augmentation).
+   ML over imaging archives (Nihon-Kohden waveform extraction).
 
 Each project sits under one or more themes via a `themes[]` field.
 

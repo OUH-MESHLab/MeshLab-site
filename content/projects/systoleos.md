@@ -9,6 +9,7 @@ members: ["Khai Duong", "Omar"]
 partners: []
 year_start: 2023
 image: "/images/projects/systoleos.png"
+logo: "/images/projects/systoleos.png"
 repo: "https://github.com/SystoleOS"
 weight: 1
 ---
@@ -22,9 +23,10 @@ component, and **certifiability** under the documentation regime
 medical-software regulators require.
 
 We use SystoleOS as the substrate underneath the lab's other
-projects — including [](/projects//) and
-the SlicerSOFA + ROS 2 simulation benches — and increasingly with
-external partners deploying clinical research workstations.
+projects — including the
+[SlicerSOFA + SlicerROS2](/projects/slicersofa-slicerros2/) simulation
+benches — and increasingly with external partners deploying clinical
+research workstations.
 
 Project home: [systoleos.org](https://systoleos.org) — source under
 [github.com/SystoleOS](https://github.com/SystoleOS).

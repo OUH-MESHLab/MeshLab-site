@@ -31,9 +31,20 @@
       </div>
     {{ end }}
 
-    <h1 class="font-display text-[clamp(2.2rem,4.5vw,3.6rem)] leading-[1.08] font-semibold tracking-tight text-[color:var(--ink)] mb-6 max-w-4xl">
-      {{ .Title }}
-    </h1>
+    {{/* Logo (project frontmatter sets `logo:` to a static image path,
+         e.g. /images/projects/systoleos.png — renders in place of the
+         display title; the title still ships as a visually-hidden h1
+         for assistive tech and document outline). */}}
+    {{ with .Params.logo }}
+      <h1 class="sr-only">{{ $.Title }}</h1>
+      <img src="{{ . }}" alt="{{ $.Title }}"
+           class="block h-auto max-w-md lg:max-w-lg mb-6"
+           style="max-height: 7rem; width: auto;" />
+    {{ else }}
+      <h1 class="font-display text-[clamp(2.2rem,4.5vw,3.6rem)] leading-[1.08] font-semibold tracking-tight text-[color:var(--ink)] mb-6 max-w-4xl">
+        {{ .Title }}
+      </h1>
+    {{ end }}
 
     {{ with .Description }}
       <p class="font-body text-[1.15rem] leading-[1.55] text-[color:var(--ink-muted)] max-w-3xl">
