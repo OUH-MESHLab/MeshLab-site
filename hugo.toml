@@ -6,12 +6,8 @@ theme = "hugoplate"
 timeZone = "Europe/Oslo"
 # post excerpt
 summaryLength = 10 # see https://gohugo.io/content-management/summaries/#automatic-summary
-disableLanguages = [
-] # example: ["fr"] for disable french language. see https://gohugo.io/content-management/multilingual/
 hasCJKLanguage = false
-# default language
-defaultContentLanguage = 'en'
-defaultContentLanguageInSubdir = false
+languageCode = 'en-us'
 
 [services]
 [services.googleAnalytics]
@@ -44,6 +40,9 @@ target = 'css'
 [[module.mounts]]
 source = 'assets'
 target = 'assets'
+[[module.mounts]]
+source = 'static'
+target = 'static'
 [[module.mounts]]
 disableWatch = true
 source = 'hugo_stats.json'

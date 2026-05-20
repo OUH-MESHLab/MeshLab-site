@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MESH|Lab — design tokens preview</title>
+<style>
+  :root {
+    --canvas: #FBFAF6;
+    --surface: #FFFFFF;
+    --surface-warm: #F5F1E8;
+    --ink: #1A1A18;
+    --ink-muted: #5E5C56;
+    --ink-subtle: #8A8780;
+    --accent: #B85C00;
+    --accent-hover: #8F4700;
+    --accent-tint: #F8DCA8;
+    --accent-tint-soft: #FDF1DA;
+    --accent-stroke: #E8B86B;
+    --border: #E8E4DA;
+    --border-strong: #C8C3B6;
+    --danger: #C73E1D;
+    --success: #5C8F4D;
+    --info: #3A6080;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Roboto", sans-serif;
+    line-height: 1.55;
+    padding: 4rem 5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 3.052rem; line-height: 1.15; margin: 0 0 .5em; font-weight: 600; letter-spacing: -.01em; }
+  h2 { font-size: 1.953rem; line-height: 1.15; margin: 2.5rem 0 .75rem; font-weight: 600; }
+  p  { color: var(--ink); margin: 0 0 1em; max-width: 60ch; }
+  .lede { color: var(--ink-muted); font-size: 1.125rem; max-width: 60ch; }
+  a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--accent-hover); text-decoration-thickness: 2px; }
+
+  .swatches { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .sw {
+    border: 1px solid var(--border);
+    border-radius: .5rem;
+    padding: 1rem;
+    background: var(--surface);
+  }
+  .sw .chip {
+    height: 64px; border-radius: .25rem; margin-bottom: .5rem;
+    border: 1px solid rgb(0 0 0 / .04);
+  }
+  .sw .name { font-weight: 500; font-size: .875rem; }
+  .sw .hex { font-family: ui-monospace, "JetBrains Mono", monospace; font-size: .75rem; color: var(--ink-muted); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .pill {
+    display: inline-block;
+    background: var(--accent-tint);
+    color: var(--ink);
+    border-radius: .25rem;
+    padding: .25rem .5rem;
+    font-size: .75rem;
+    font-weight: 500;
+  }
+  .pill.role-clinical { background: var(--accent-tint-soft); }
+  .pill.role-visiting { background: var(--surface-warm); }
+
+  .hero {
+    background: var(--accent-tint-soft);
+    padding: 3rem;
+    border-radius: .75rem;
+    margin: 2rem 0;
+  }
+  .hero .kicker {
+    color: var(--accent);
+    font-family: "Dosis", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: .875rem;
+    margin-bottom: 1rem;
+  }
+  .hero h1 { margin-top: 0; }
+  .hero .lede { font-size: 1.25rem; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: .5rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: box-shadow .15s ease;
+  }
+  .card:hover { box-shadow: 0 1px 2px rgb(0 0 0 / .04); }
+  .card .meta { color: var(--ink-muted); font-size: .875rem; }
+
+  .cta {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--canvas);
+    border: 0; border-radius: 9999px;
+    padding: .75rem 1.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: .9375rem;
+  }
+  .cta:hover { background: var(--accent-hover); color: var(--canvas); text-decoration: none; }
+  .cta.secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent-stroke);
+  }
+  .cta.secondary:hover { background: var(--accent-tint-soft); }
+
+  .divider {
+    height: 2px;
+    background: var(--accent-stroke);
+    width: 48px;
+    margin: 2rem 0;
+    border: 0;
+  }
+
+  .partners {
+    display: flex; justify-content: space-between; gap: 2rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    color: var(--ink-muted);
+    font-family: "Dosis", sans-serif;
+    font-weight: 500;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: .875rem;
+  }
+
+  footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--ink-subtle); font-size: .875rem; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="kicker">Mesh|Lab — Oslo University Hospital · NTNU</div>
+  <h1>Software that makes precision care possible.</h1>
+  <p class="lede">Clinicians, researchers and patients connected through our software.</p>
+  <p style="margin-top:1.5rem">
+    <a href="#" class="cta">See our research</a>
+    <a href="#" class="cta secondary" style="margin-left:.5rem">Join the lab</a>
+  </p>
+</div>
+
+<h2>Surfaces</h2>
+<div class="swatches">
+  <div class="sw"><div class="chip" style="background:var(--canvas)"></div><div class="name">canvas</div><div class="hex">#FBFAF6</div></div>
+  <div class="sw"><div class="chip" style="background:var(--surface)"></div><div class="name">surface</div><div class="hex">#FFFFFF</div></div>
+  <div class="sw"><div class="chip" style="background:var(--surface-warm)"></div><div class="name">surface-warm</div><div class="hex">#F5F1E8</div></div>
+</div>
+
+<h2>Ink</h2>
+<div class="swatches">
+  <div class="sw"><div class="chip" style="background:var(--ink)"></div><div class="name">ink</div><div class="hex">#1A1A18</div></div>
+  <div class="sw"><div class="chip" style="background:var(--ink-muted)"></div><div class="name">ink-muted</div><div class="hex">#5E5C56</div></div>
+  <div class="sw"><div class="chip" style="background:var(--ink-subtle)"></div><div class="name">ink-subtle</div><div class="hex">#8A8780</div></div>
+</div>
+
+<h2>Accent family</h2>
+<div class="swatches">
+  <div class="sw"><div class="chip" style="background:var(--accent)"></div><div class="name">accent</div><div class="hex">#B85C00</div></div>
+  <div class="sw"><div class="chip" style="background:var(--accent-hover)"></div><div class="name">accent-hover</div><div class="hex">#8F4700</div></div>
+  <div class="sw"><div class="chip" style="background:var(--accent-stroke)"></div><div class="name">accent-stroke</div><div class="hex">#E8B86B</div></div>
+  <div class="sw"><div class="chip" style="background:var(--accent-tint)"></div><div class="name">accent-tint</div><div class="hex">#F8DCA8</div></div>
+  <div class="sw"><div class="chip" style="background:var(--accent-tint-soft)"></div><div class="name">accent-tint-soft</div><div class="hex">#FDF1DA</div></div>
+</div>
+
+<h2>Role chips (team)</h2>
+<div class="chips">
+  <span class="pill">Technical</span>
+  <span class="pill role-clinical">Clinical</span>
+  <span class="pill role-visiting">Visiting</span>
+  <span class="pill" style="background:var(--surface);border:1px solid var(--border)">Alumni · 2023–2025</span>
+</div>
+
+<h2>Type</h2>
+<div style="font-family: system-ui, sans-serif;">
+  <div style="font-size:3.815rem;line-height:1.15;font-weight:600">Display 1 — 61 px</div>
+  <div style="font-size:3.052rem;line-height:1.15;font-weight:600">Display 2 — 49 px</div>
+  <div style="font-size:2.441rem;line-height:1.15;font-weight:600">H1 — 39 px</div>
+  <div style="font-size:1.953rem;line-height:1.2;font-weight:600">H2 — 31 px</div>
+  <div style="font-size:1.563rem;line-height:1.25;font-weight:500">H3 — 25 px</div>
+  <div style="font-size:1.25rem;line-height:1.3;font-weight:500">H4 — 20 px</div>
+  <div style="font-size:1.125rem;line-height:1.55">Body lead — 18 px</div>
+  <div style="font-size:1rem;line-height:1.55">Body — 16 px</div>
+  <div style="font-size:.875rem;line-height:1.5;color:var(--ink-muted)">Meta · 14 px · ink-muted</div>
+  <div style="font-size:.75rem;line-height:1.5;color:var(--ink-subtle)">Micro · 12 px · ink-subtle</div>
+</div>
+
+<h2>Card pattern (e.g. project / publication)</h2>
+<div class="card">
+  <div style="display:flex;gap:.5rem;margin-bottom:.5rem">
+    <span class="pill">Image-guided surgery</span>
+    <span class="pill">Open source</span>
+  </div>
+  <div style="font-weight:600;font-size:1.25rem;line-height:1.3">SlicerLiver — patient-specific liver-resection planning</div>
+  <div class="meta" style="margin-top:.25rem">2023–2027 · Lead: Rafael Palomar · Partners: BWH, Inria</div>
+  <p style="margin:.75rem 0 0">3D Slicer extension that turns CT/MRI into a navigable surgical plan, validated against a multi-centre cohort.</p>
+  <div style="margin-top:.75rem"><a href="#">github.com/OUH-MESHLab/SlicerLiver</a></div>
+</div>
+
+<hr class="divider">
+
+<h2>Selected publication row</h2>
+<div class="card">
+  <div style="display:flex;gap:.5rem;align-items:baseline;margin-bottom:.25rem">
+    <span class="pill">MICCAI</span>
+    <span class="meta">2025</span>
+  </div>
+  <div style="font-weight:500;line-height:1.4">A reproducible benchmark for liver-vessel segmentation in pre-operative CT</div>
+  <div class="meta" style="margin-top:.25rem">Palomar, R.; Berg, A.; … et al.</div>
+  <div style="margin-top:.5rem">
+    <a href="#">PDF</a> · <a href="#">DOI</a> · <a href="#">Code</a>
+  </div>
+</div>
+
+<h2>Partner-logo strip (text placeholder)</h2>
+<div class="partners">
+  <span>Oslo University Hospital</span>
+  <span>NTNU</span>
+  <span>St. Olavs</span>
+  <span>SINTEF</span>
+  <span>BWH Harvard</span>
+  <span>Inria</span>
+  <span>NVIDIA</span>
+</div>
+
+<footer>
+  Tokens live in <code>DESIGN.md</code>. Edit hex values there and re-open this page to compare.
+  This swatch is at <code>static/_swatch.html</code> and served at <code>/_swatch.html</code>.
+</footer>
+
+</body>
+</html>
