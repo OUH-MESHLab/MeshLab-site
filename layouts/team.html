@@ -1,0 +1,304 @@
+{{ define "main" }}
+
+{{ $team := site.Data.team }}
+
+{{/* =========================== HEADER =========================== */}}
+<section class="relative">
+  <div class="container max-w-6xl mx-auto px-6 lg:px-8 pt-20 pb-12 lg:pt-28 lg:pb-16">
+    <p class="font-display uppercase tracking-[0.18em] text-sm text-[color:var(--ink-muted)] mb-6">
+      MESH|Lab
+    </p>
+    <h1 class="font-display text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] font-semibold tracking-tight text-[color:var(--ink)] mb-8 max-w-4xl">
+      {{ .Title }}
+    </h1>
+    {{ with .Params.description }}
+      <p class="font-body text-[1.15rem] leading-[1.55] text-[color:var(--ink-muted)] max-w-3xl">
+        {{ . }}
+      </p>
+    {{ end }}
+  </div>
+  <div class="h-px bg-[color:var(--border-warm)]"></div>
+</section>
+
+{{/* =========================== HEAD =========================== */}}
+{{ with $team.head }}
+  <section class="relative">
+    <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
+      <p class="font-display uppercase tracking-[0.18em] text-xs text-[color:var(--ink-subtle)] mb-8">
+        Head of the group
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+        {{ range . }}
+          <button type="button"
+                  data-modal-target="modal-{{ .slug }}"
+                  class="team-card group text-left md:col-span-7 lg:col-span-6 bg-[color:var(--surface)] border border-[color:var(--border-warm)] rounded-md p-6 lg:p-8 hover:shadow-[0_1px_2px_rgb(0_0_0_/_0.04)] transition-shadow duration-150 flex gap-6 items-start cursor-pointer">
+            {{ if .photo }}
+              <img src="{{ .photo }}" alt="" loading="lazy"
+                   class="w-24 h-24 lg:w-32 lg:h-32 object-cover rounded-md flex-none" />
+            {{ end }}
+            <div class="flex-1 min-w-0">
+              <p class="font-display uppercase tracking-[0.14em] text-[0.7rem] text-[color:var(--ink-subtle)] mb-2">
+                {{ .role }}
+              </p>
+              <h2 class="font-display text-[1.6rem] lg:text-[1.85rem] leading-[1.15] font-semibold text-[color:var(--ink)] mb-2 group-hover:text-[color:var(--accent)] transition-colors">
+                {{ .name }}
+              </h2>
+              <p class="font-body text-sm text-[color:var(--ink-muted)] mb-3">
+                {{ .affiliation }}
+              </p>
+              <p class="font-body text-[0.95rem] leading-[1.55] text-[color:var(--ink)]">
+                {{ .bio_short }}
+              </p>
+            </div>
+          </button>
+        {{ end }}
+      </div>
+    </div>
+    <div class="h-px bg-[color:var(--border-warm)]"></div>
+  </section>
+{{ end }}
+
+{{/* =========================== ASSOCIATE MEMBERS =========================== */}}
+<section class="relative">
+  <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
+    <p class="font-display uppercase tracking-[0.18em] text-xs text-[color:var(--ink-subtle)] mb-8">
+      Associate members
+    </p>
+    {{ if $team.associate }}
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {{ range sort $team.associate "weight" "asc" }}
+          <button type="button"
+                  data-modal-target="modal-{{ .slug }}"
+                  class="team-card group text-left bg-[color:var(--surface)] border border-[color:var(--border-warm)] rounded-md p-5 lg:p-6 hover:shadow-[0_1px_2px_rgb(0_0_0_/_0.04)] transition-shadow duration-150 flex flex-col cursor-pointer">
+            {{ if .photo }}
+              <img src="{{ .photo }}" alt="" loading="lazy"
+                   class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-md mb-4" />
+            {{ else }}
+              <div class="w-20 h-20 lg:w-24 lg:h-24 rounded-md mb-4 flex items-center justify-center"
+                   style="background-color: var(--accent-tint-soft); color: var(--accent);">
+                <span class="font-display text-xl font-semibold">
+                  {{ index (split .name " ") 0 | substr 0 1 }}
+                </span>
+              </div>
+            {{ end }}
+            <span class="inline-block w-fit bg-[color:var(--accent-tint)] text-[color:var(--ink)] text-[0.7rem] uppercase tracking-wider font-medium rounded px-2 py-0.5 mb-2">
+              {{ if eq .role "clinical" }}Clinical{{ else }}Technical{{ end }}
+            </span>
+            <h3 class="font-display text-[1.25rem] leading-[1.2] font-semibold text-[color:var(--ink)] mb-1 group-hover:text-[color:var(--accent)] transition-colors">
+              {{ .name }}
+            </h3>
+            <p class="font-body text-xs text-[color:var(--ink-muted)] mb-2">
+              {{ .affiliation }}
+            </p>
+            <p class="font-body text-sm text-[color:var(--ink)] leading-[1.5]">
+              {{ .bio_short }}
+            </p>
+          </button>
+        {{ end }}
+      </div>
+    {{ else }}
+      <p class="font-body text-[1rem] leading-[1.65] text-[color:var(--ink-muted)] italic max-w-2xl">
+        Associate-member roster is being updated. The lab is actively recruiting —
+        see <a href="/join/" class="text-[color:var(--accent)] underline decoration-1 underline-offset-2 hover:decoration-2">Join us</a>.
+      </p>
+    {{ end }}
+  </div>
+  <div class="h-px bg-[color:var(--border-warm)]"></div>
+</section>
+
+{{/* =========================== VISITING =========================== */}}
+{{ with $team.visiting }}
+  <section class="relative">
+    <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
+      <p class="font-display uppercase tracking-[0.18em] text-xs text-[color:var(--ink-subtle)] mb-8">
+        Visiting researchers & students
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        {{ range sort . "weight" "asc" }}
+          <button type="button"
+                  data-modal-target="modal-{{ .slug }}"
+                  class="team-card group text-left flex flex-col items-start cursor-pointer">
+            <h4 class="font-display text-[1.05rem] leading-[1.2] font-semibold text-[color:var(--ink)] mb-1 group-hover:text-[color:var(--accent)] transition-colors">
+              {{ .name }}
+            </h4>
+            <p class="font-body text-xs text-[color:var(--ink-muted)] mb-1">
+              from {{ .role }}
+            </p>
+            {{ with .period }}
+              <p class="font-display uppercase tracking-[0.12em] text-[0.7rem] text-[color:var(--ink-subtle)]">
+                {{ . }}
+              </p>
+            {{ end }}
+          </button>
+        {{ end }}
+      </div>
+    </div>
+    <div class="h-px bg-[color:var(--border-warm)]"></div>
+  </section>
+{{ end }}
+
+{{/* =========================== ALUMNI =========================== */}}
+{{ with $team.alumni }}
+  <section class="relative">
+    <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
+      <p class="font-display uppercase tracking-[0.18em] text-xs text-[color:var(--ink-subtle)] mb-8">
+        Alumni
+      </p>
+      <ul class="font-body divide-y divide-[color:var(--border-warm)] max-w-2xl">
+        {{ range sort . "weight" "asc" }}
+          <li class="py-3 flex items-baseline justify-between gap-4">
+            <div>
+              <span class="text-[color:var(--ink)]">{{ .name }}</span>
+              {{ with .role }}
+                <span class="text-[color:var(--ink-muted)] text-sm ml-2">· {{ . }}</span>
+              {{ end }}
+            </div>
+            {{ with .period }}
+              <span class="font-display uppercase tracking-[0.12em] text-[0.7rem] text-[color:var(--ink-subtle)] flex-none">
+                {{ . }}
+              </span>
+            {{ end }}
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </section>
+{{ end }}
+
+{{/* =========================== MODALS =========================== */}}
+{{ $allMembers := slice }}
+{{ with $team.head }}{{ $allMembers = $allMembers | append . }}{{ end }}
+{{ with $team.associate }}{{ $allMembers = $allMembers | append . }}{{ end }}
+{{ with $team.visiting }}{{ $allMembers = $allMembers | append . }}{{ end }}
+
+{{ range $allMembers }}
+  <div id="modal-{{ .slug }}"
+       class="team-modal fixed inset-0 z-50 hidden items-center justify-center p-4"
+       role="dialog" aria-modal="true" aria-labelledby="modal-title-{{ .slug }}"
+       style="background-color: color-mix(in oklab, var(--ink) 60%, transparent);">
+    <div class="bg-[color:var(--surface)] rounded-lg shadow-[0_4px_12px_rgb(0_0_0_/_0.06)] max-w-2xl w-full max-h-[85vh] overflow-y-auto p-7 lg:p-9 relative"
+         role="document">
+      <button type="button" data-modal-close
+              aria-label="Close"
+              class="absolute top-4 right-4 p-2 -m-2 text-[color:var(--ink-muted)] hover:text-[color:var(--accent)]">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12"/>
+        </svg>
+      </button>
+      <div class="flex gap-5 items-start mb-5">
+        {{ if .photo }}
+          <img src="{{ .photo }}" alt=""
+               class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-md flex-none" />
+        {{ end }}
+        <div>
+          <h2 id="modal-title-{{ .slug }}"
+              class="font-display text-[1.6rem] leading-[1.2] font-semibold text-[color:var(--ink)]">
+            {{ .name }}
+          </h2>
+          <p class="font-body text-sm text-[color:var(--ink-muted)] mt-1">
+            {{ .role }}{{ with .affiliation }} · {{ . }}{{ end }}
+          </p>
+        </div>
+      </div>
+      <div class="font-body text-[1rem] leading-[1.65] text-[color:var(--ink)]">
+        {{ .bio | safeHTML }}
+      </div>
+      {{ with .expertise }}
+        <div class="mt-5 flex flex-wrap gap-1.5">
+          {{ range . }}
+            <span class="inline-block bg-[color:var(--accent-tint-soft)] text-[color:var(--ink)] text-[0.75rem] rounded px-2 py-1">
+              {{ . }}
+            </span>
+          {{ end }}
+        </div>
+      {{ end }}
+      {{ with .projects }}
+        <div class="mt-6">
+          <p class="font-display uppercase tracking-[0.14em] text-xs text-[color:var(--ink-subtle)] mb-2">
+            Current projects
+          </p>
+          <ul class="font-body text-sm leading-[1.7]">
+            {{ range . }}
+              <li>
+                <a href="/projects/{{ .slug }}/" class="text-[color:var(--accent)] underline decoration-1 underline-offset-2 hover:decoration-2">
+                  {{ .title }}
+                </a>
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      {{ end }}
+      {{ if or .email .orcid .github .scholar }}
+        <div class="mt-6 pt-5 border-t border-[color:var(--border-warm)] flex flex-wrap gap-4 text-sm">
+          {{ with .email }}
+            <a href="mailto:{{ . }}" class="text-[color:var(--accent)] underline decoration-1 underline-offset-2 hover:decoration-2">
+              {{ . }}
+            </a>
+          {{ end }}
+          {{ with .orcid }}
+            <a href="https://orcid.org/{{ . }}" target="_blank" rel="noopener"
+               class="text-[color:var(--accent)] underline decoration-1 underline-offset-2 hover:decoration-2">
+              ORCID
+            </a>
+          {{ end }}
+          {{ with .github }}
+            <a href="https://github.com/{{ . }}" target="_blank" rel="noopener"
+               class="text-[color:var(--accent)] underline decoration-1 underline-offset-2 hover:decoration-2">
+              GitHub
+            </a>
+          {{ end }}
+          {{ with .scholar }}
+            <a href="{{ . }}" target="_blank" rel="noopener"
+               class="text-[color:var(--accent)] underline decoration-1 underline-offset-2 hover:decoration-2">
+              Scholar
+            </a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}
+
+{{/* Modal mechanic — vanilla JS */}}
+<script>
+  (function () {
+    function openModal(id) {
+      const m = document.getElementById(id);
+      if (!m) return;
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+      const closeBtn = m.querySelector('[data-modal-close]');
+      if (closeBtn) closeBtn.focus();
+    }
+    function closeModal(m) {
+      m.classList.remove('flex');
+      m.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('click', e => {
+      const trigger = e.target.closest('[data-modal-target]');
+      if (trigger) {
+        e.preventDefault();
+        openModal(trigger.getAttribute('data-modal-target'));
+        return;
+      }
+      const close = e.target.closest('[data-modal-close]');
+      if (close) {
+        const m = close.closest('.team-modal');
+        if (m) closeModal(m);
+        return;
+      }
+      if (e.target.classList.contains('team-modal')) {
+        closeModal(e.target);
+      }
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key !== 'Escape') return;
+      document.querySelectorAll('.team-modal.flex').forEach(closeModal);
+    });
+  })();
+</script>
+
+{{ end }}

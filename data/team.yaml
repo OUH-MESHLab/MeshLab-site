@@ -1,0 +1,128 @@
+## MESH|Lab team roster.
+##
+## Source of truth for the /team/ page. Edit this file; the page picks
+## up changes on the next Hugo rebuild. Order within each tier follows
+## "weight" ascending.
+##
+## Tiers:
+##   head            — the head of the group (one entry)
+##   associate       — current associate members, with role: technical | clinical
+##   visiting        — visiting researchers / external students, time-bounded
+##   alumni          — past members, compact name + period rendering
+##
+## Each entry's fields (use empty strings for what you don't want shown):
+##   slug              short identifier (used as DOM id for the modal)
+##   name              display name
+##   role              tier-specific: for associates → technical | clinical
+##                                   for visiting → home institution name
+##                                   for alumni  → past role
+##   affiliation       short institutional line (e.g., "Oslo University Hospital")
+##   photo             /images/team/<slug>.jpg (drop in static/ or assets/)
+##   bio_short         one-sentence card subtitle
+##   bio               multi-line HTML for the modal body
+##   expertise         array of short tags
+##   projects          array of {slug, title} for current projects (slug links to /projects/<slug>/)
+##   orcid             ORCID id (no URL, just the id, e.g. "0000-0003-1234-5678")
+##   github            GitHub handle
+##   scholar           Google Scholar profile URL
+##   email             public email if any (omit otherwise)
+##   period            for visiting / alumni only — e.g. "2024", "2022-2024"
+##   weight            sort order within tier (lower = first)
+
+head:
+  - slug: rafael-palomar
+    name: Rafael Palomar
+    role: Head of MESH|Lab
+    affiliation: The Intervention Centre, Oslo University Hospital
+    photo: /images/team/rafael-palomar.jpg
+    bio_short: Translating clinical needs into precision-medicine software.
+    bio: |
+      <p>Rafael Palomar leads MESH|Lab at the Intervention Centre,
+      Oslo University Hospital. His work spans image-guided surgery,
+      soft-tissue simulation, reproducible operating systems for
+      medical computing, and the long-term maintenance of open-source
+      clinical software.</p>
+      <p>He is the lead maintainer of SystoleOS, SlicerLiver,
+      SlicerSOFA + ROS, and the Brainlab/SystoleOS navigation bridge.
+      Externally he collaborates with Brigham and Women's Hospital,
+      Inria, Karlsruhe Institute of Technology, the Paris Brain
+      Institute, and Queen's University, and serves on European
+      project consortia in stereotactic neurosurgery and clinical AI.</p>
+    expertise:
+      - Image-guided surgery
+      - Soft-tissue simulation
+      - Medical-software reproducibility
+      - Clinical-software regulation
+    projects:
+      - slug: systoleos
+        title: SystoleOS
+      - slug: slicerliver
+        title: SlicerLiver
+      - slug: slicersofa-ros
+        title: SlicerSOFA + ROS
+    orcid: ""
+    github: rafaelpalomar
+    scholar: ""
+    email: rafael.palomar@ous-research.no
+    weight: 1
+
+associate:
+  ## Add associate members below. Examples (replace the placeholders):
+  ##
+  # - slug: example-technical
+  #   name: First Last
+  #   role: technical
+  #   affiliation: The Intervention Centre, OUS
+  #   photo: /images/team/example-technical.jpg
+  #   bio_short: One-line specialty.
+  #   bio: |
+  #     <p>Longer bio for the modal.</p>
+  #   expertise: [Tag one, Tag two]
+  #   projects:
+  #     - slug: slicerliver
+  #       title: SlicerLiver
+  #   orcid: ""
+  #   github: ""
+  #   scholar: ""
+  #   email: ""
+  #   weight: 10
+  #
+  # - slug: example-clinical
+  #   name: Dr. First Last
+  #   role: clinical
+  #   affiliation: Department of <specialty>, OUS
+  #   photo: /images/team/example-clinical.jpg
+  #   bio_short: Clinical specialty + lab connection.
+  #   bio: |
+  #     <p>Longer bio for the modal.</p>
+  #   expertise: [Specialty]
+  #   projects: []
+  #   weight: 20
+
+visiting:
+  ## Visiting researchers / external students. Example:
+  ##
+  # - slug: jonas-kit
+  #   name: Jonas Example
+  #   role: KIT (Karlsruhe Institute of Technology)
+  #   affiliation: MSc Student
+  #   photo: /images/team/jonas-kit.jpg
+  #   bio_short: Electrode planning, joint with the Paris Brain Institute.
+  #   bio: |
+  #     <p>Working on the  project under Rafael Palomar,
+  #     based at Karlsruhe Institute of Technology.</p>
+  #   expertise: [Electrode planning, Surgical planning]
+  #   projects:
+  #     - slug: 
+  #       title: 
+  #   period: "2025–"
+  #   weight: 10
+
+alumni:
+  ## Past members. Compact rendering: name + period + (optional role).
+  ## Example:
+  ##
+  # - name: First Last
+  #   role: Engineer
+  #   period: "2022–2024"
+  #   weight: 10
