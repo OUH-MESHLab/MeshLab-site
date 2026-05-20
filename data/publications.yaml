@@ -1,0 +1,92 @@
+## MESH|Lab selected publications.
+##
+## Source of truth for the /publications/ page and the home-page
+## "selected publications" block. Edit this file; the site picks up
+## changes on the next Hugo rebuild.
+##
+## Fields:
+##   slug         short identifier (used for the doi/permalink anchor)
+##   title        full paper title
+##   authors      author array as listed on the paper; mark MESH|Lab
+##                authors by wrapping with **double asterisks** so the
+##                layout can bold them (markdown-style)
+##   venue        full journal / conference name
+##   year         publication year (integer)
+##   type         journal | conference | preprint | book-chapter | thesis
+##   doi          DOI string (no URL prefix) — empty if pre-print only
+##   url_pdf      direct PDF URL (open access where possible)
+##   url_code     companion code/data URL (often a GitHub repo)
+##   themes       research-theme slugs (see /research/) for filter chips
+##   weight       sort within year; lower = earlier in list
+
+items:
+
+  - slug: martinez-2026-inmemory
+    title: "In-memory operators for medical image processing"
+    authors:
+      - H. Martínez
+      - J. Gómez-Luna
+      - "**R. Palomar**"
+      - J. Olivares
+    venue: Future Generation Computer Systems
+    year: 2026
+    type: journal
+    doi: ""
+    url_pdf: ""
+    url_code: ""
+    themes: [systems-infrastructure]
+    weight: 10
+
+  - slug: dalbenzio-2025-segments
+    title: "Patient-specific functional liver segments based on centerline classification of the hepatic and portal veins"
+    authors:
+      - "**G. d'Albenzio**"
+      - "**R. Meng**"
+      - "**D. Aghayan**"
+      - "**E. Pelanis**"
+      - T. Sakinis
+      - O. V. Solberg
+      - "et al."
+    venue: Computer Assisted Surgery
+    year: 2025
+    type: journal
+    doi: ""
+    url_pdf: ""
+    url_code: ""
+    themes: [image-guided-surgery]
+    weight: 10
+
+  - slug: meng-2025-slicer-liver
+    title: "Slicer-Liver: a 3D Slicer extension for liver surgery planning"
+    authors:
+      - "**R. Meng**"
+      - "**G. d'Albenzio**"
+      - O. V. Solberg
+      - G. A. Tangen
+      - "**R. Palomar**"
+    venue: Journal of Open Source Software
+    year: 2025
+    type: journal
+    doi: ""
+    url_pdf: ""
+    url_code: "https://github.com/ALive-research/SlicerLiver"
+    themes: [image-guided-surgery]
+    weight: 20
+
+  - slug: meng-2025-resectograms
+    title: "Resectograms: planning liver surgery with real-time occlusion-free visualization of virtual resections"
+    authors:
+      - "**R. Meng**"
+      - "**D. Aghayan**"
+      - "**E. Pelanis**"
+      - "**B. Edwin**"
+      - F. A. Cheikh
+      - "**R. Palomar**"
+    venue: Computer Methods and Programs in Biomedicine Update
+    year: 2025
+    type: journal
+    doi: ""
+    url_pdf: ""
+    url_code: ""
+    themes: [image-guided-surgery]
+    weight: 30
