@@ -17,7 +17,7 @@
 ##                                   for visiting → home institution name
 ##                                   for alumni  → past role
 ##   affiliation       short institutional line (e.g., "Oslo University Hospital")
-##   photo             /images/team/<slug>.jpg (drop in static/ or assets/)
+##   photo             /images/team/<slug>.jpg (drop in static/images/team/)
 ##   bio_short         one-sentence card subtitle
 ##   bio               multi-line HTML for the modal body
 ##   expertise         array of short tags
@@ -67,40 +67,136 @@ head:
     weight: 1
 
 associate:
-  ## Add associate members below. Examples (replace the placeholders):
-  ##
-  # - slug: example-technical
-  #   name: First Last
-  #   role: technical
-  #   affiliation: The Intervention Centre, OUS
-  #   photo: /images/team/example-technical.jpg
-  #   bio_short: One-line specialty.
-  #   bio: |
-  #     <p>Longer bio for the modal.</p>
-  #   expertise: [Tag one, Tag two]
-  #   projects:
-  #     - slug: slicerliver
-  #       title: SlicerLiver
-  #   orcid: ""
-  #   github: ""
-  #   scholar: ""
-  #   email: ""
-  #   weight: 10
-  #
-  # - slug: example-clinical
-  #   name: Dr. First Last
-  #   role: clinical
-  #   affiliation: Department of <specialty>, OUS
-  #   photo: /images/team/example-clinical.jpg
-  #   bio_short: Clinical specialty + lab connection.
-  #   bio: |
-  #     <p>Longer bio for the modal.</p>
-  #   expertise: [Specialty]
-  #   projects: []
-  #   weight: 20
+
+  - slug: bjorn-edwin
+    name: Bjørn Edwin
+    role: clinical
+    affiliation: Professor, Consultant Surgeon · The Intervention Centre, OUS
+    photo: /images/team/bjorn.jpg
+    bio_short: Clinical research head; surgical-software collaborator on liver-resection projects.
+    bio: |
+      <p>Bjørn von Gohren Edwin is Professor and Consultant Surgeon at
+      Oslo University Hospital, head of the Section for Clinical Research
+      at the Intervention Centre, and a clinical collaborator on
+      MESH|Lab's surgical-software work — most directly on liver
+      resection planning (SlicerLiver).</p>
+    expertise:
+      - Hepato-pancreato-biliary surgery
+      - Clinical research
+    projects:
+      - slug: slicerliver
+        title: SlicerLiver
+    email: bjoedw@ous-hf.no
+    weight: 10
+
+  - slug: gabriella-dalbenzio
+    name: Gabriella d'Albenzio
+    role: technical
+    affiliation: The Intervention Centre, OUS
+    photo: /images/team/gabriella.jpg
+    bio_short: Liver-resection planning, segmentation and surgical-cut geometry.
+    bio: |
+      <p>Gabriella works on the SlicerLiver pipeline — liver
+      segmentation, vessel-tree analysis, and the geometry of the
+      planned resection surface.</p>
+    expertise:
+      - Surgical planning
+      - Medical imaging
+    projects:
+      - slug: slicerliver
+        title: SlicerLiver
+    weight: 20
+
+  - slug: ruoyan-meng
+    name: Ruoyan Meng
+    role: technical
+    affiliation: The Intervention Centre, OUS
+    photo: /images/team/ruoyan.jpg
+    bio_short:  data integration in 3D Slicer; liver imaging.
+    bio: |
+      <p>Ruoyan leads the  module — bringing 
+      acquisitions into the 3D Slicer environment alongside conventional
+      radiological imagery — and contributes to SlicerLiver.</p>
+    expertise:
+      - Medical imaging
+      - 3D Slicer extensions
+    projects:
+      - slug: 
+        title: 
+      - slug: slicerliver
+        title: SlicerLiver
+    weight: 30
+
+  - slug: davit
+    name: Davit  # TODO: last name?
+    role: clinical
+    affiliation: The Intervention Centre, OUS  # TODO: confirm affiliation
+    photo: /images/team/davit.jpg
+    bio_short: Clinical collaborator on liver-resection research.  # TODO: refine
+    bio: |
+      <p><em>Bio pending — please refine in <code>data/team.yaml</code>.</em></p>
+    expertise: []
+    projects: []
+    weight: 40
+
+  - slug: khai-duong
+    name: Khai Duong
+    role: technical
+    affiliation: The Intervention Centre, OUS
+    bio_short: Patient-monitoring data extraction and lab infrastructure.
+    bio: |
+      <p>Khai works on the MONK system (Nihon Kohden waveform extraction),
+       visualisation infrastructure, and SystoleOS — the lab's
+      foundational systems and clinical-data integration projects.</p>
+    expertise:
+      - Software engineering
+      - Patient monitoring
+    projects:
+      - slug: monk-nihon-kohden
+        title: MONK
+      - slug: 
+        title: 
+      - slug: systoleos
+        title: SystoleOS
+    weight: 50
+
+  - slug: omar
+    name: Omar  # TODO: last name?
+    role: technical
+    affiliation: The Intervention Centre, OUS
+    bio_short: SystoleOS — operating-system platform for medical applications.
+    bio: |
+      <p>Omar works on SystoleOS, the lab's reproducible operating
+      system for medical applications.</p>
+    expertise:
+      - Software engineering
+      - Operating systems
+    projects:
+      - slug: systoleos
+        title: SystoleOS
+    weight: 60
+
+  - slug: eleonore-dufresne
+    name: Eléonore Dufresne
+    role: technical
+    affiliation: The Intervention Centre, OUS — joint with Inria
+    bio_short: Soft-tissue simulation + robotics integration in 3D Slicer.
+    bio: |
+      <p>Eléonore works on the SlicerSOFA + ROS integration — bringing
+      deformable-tissue simulation and robotic control into the
+      planning environment surgeons already use. The work is conducted
+      jointly with Inria.</p>
+    expertise:
+      - Soft-tissue simulation
+      - Robotics
+      - SOFA framework
+    projects:
+      - slug: slicersofa-ros
+        title: SlicerSOFA + ROS
+    weight: 70
 
 visiting:
-  ## Visiting researchers / external students. Example:
+  ## Add visiting researchers / external students here. Example:
   ##
   # - slug: jonas-kit
   #   name: Jonas Example
