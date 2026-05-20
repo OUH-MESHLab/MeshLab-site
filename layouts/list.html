@@ -1,0 +1,148 @@
+{{ define "main" }}
+
+{{/* =========================== SECTION HEADER =========================== */}}
+<section class="relative">
+  <div class="container max-w-6xl mx-auto px-6 lg:px-8 pt-20 pb-12 lg:pt-28 lg:pb-16">
+    <p class="font-display uppercase tracking-[0.18em] text-sm text-[color:var(--ink-muted)] mb-6">
+      {{ .CurrentSection.Title | default "MESH|Lab" }}
+    </p>
+    <h1 class="font-display text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] font-semibold tracking-tight text-[color:var(--ink)] mb-8 max-w-4xl">
+      {{ .Title }}
+    </h1>
+    {{ with .Description }}
+      <p class="font-body text-[1.15rem] leading-[1.55] text-[color:var(--ink-muted)] max-w-3xl">
+        {{ . }}
+      </p>
+    {{ end }}
+    {{ with .Content }}
+      <div class="font-body text-[1.05rem] leading-[1.65] text-[color:var(--ink-muted)] max-w-3xl mt-6 prose-meshlab">
+        {{ . }}
+      </div>
+    {{ end }}
+  </div>
+  <div class="h-px bg-[color:var(--border-warm)]"></div>
+</section>
+
+{{/* =========================== LISTING BODY =========================== */}}
+{{ $section := .Section }}
+
+{{ if eq $section "research" }}
+
+  {{/* Research themes — render the four theme sub-sections as large blocks */}}
+  <section class="relative">
+    <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
+        {{ range sort .Sections "Params.weight" "asc" }}
+          <article class="group relative pl-6 lg:pl-8 border-l border-[color:var(--border-warm)] hover:border-[color:var(--accent-stroke)] transition-colors duration-150">
+            <h2 class="font-display text-[1.85rem] lg:text-[2rem] leading-[1.15] font-semibold text-[color:var(--ink)] mb-4">
+              <a href="{{ .RelPermalink }}" class="hover:text-[color:var(--accent)] no-underline transition-colors duration-150">
+                {{ .Title }}
+              </a>
+            </h2>
+            <p class="font-body text-[1rem] leading-[1.6] text-[color:var(--ink-muted)] mb-5 max-w-prose">
+              {{ .Description }}
+            </p>
+            <a href="{{ .RelPermalink }}"
+               class="font-body font-medium text-[0.95rem] text-[color:var(--accent)] hover:text-[color:var(--accent-hover)] underline decoration-[color:var(--accent-stroke)] decoration-1 underline-offset-4 hover:decoration-2">
+              Read more →
+            </a>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+{{ else if eq $section "projects" }}
+
+  {{/* Projects — grid with theme chips, lead, dates */}}
+  <section class="relative">
+    <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        {{ range sort .RegularPages "Params.weight" "asc" }}
+          <article class="bg-[color:var(--surface)] border border-[color:var(--border-warm)] rounded-md p-6 lg:p-7 hover:shadow-[0_1px_2px_rgb(0_0_0_/_0.04)] transition-shadow duration-150 flex flex-col">
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              {{ range .Params.themes }}
+                <span class="inline-block bg-[color:var(--accent-tint)] text-[color:var(--ink)] text-[0.7rem] uppercase tracking-wider font-medium rounded px-2 py-0.5">
+                  {{ . | replaceRE "-" " " | title }}
+                </span>
+              {{ end }}
+              {{ if eq .Params.status "completed" }}
+                <span class="inline-block text-[color:var(--ink-subtle)] text-[0.7rem] uppercase tracking-wider font-medium rounded px-2 py-0.5 border border-[color:var(--border-warm)]">
+                  Completed
+                </span>
+              {{ end }}
+            </div>
+            <h3 class="font-display text-[1.4rem] leading-[1.2] font-semibold mb-3 text-[color:var(--ink)]">
+              <a href="{{ .RelPermalink }}" class="hover:text-[color:var(--accent)] no-underline transition-colors duration-150">
+                {{ .Title }}
+              </a>
+            </h3>
+            <p class="font-body text-[0.85rem] text-[color:var(--ink-muted)] mb-4">
+              {{ with .Params.lead }}{{ . }}{{ end }}
+              {{ with .Params.year_start }} · {{ . }}{{ with $.Params.year_end }}–{{ . }}{{ else }}–{{ end }}{{ end }}
+            </p>
+            <p class="font-body text-[0.95rem] leading-[1.55] text-[color:var(--ink)] flex-1 mb-4">
+              {{ .Description }}
+            </p>
+            <div>
+              <a href="{{ .RelPermalink }}"
+                 class="font-body font-medium text-[0.9rem] text-[color:var(--accent)] hover:text-[color:var(--accent-hover)] underline decoration-[color:var(--accent-stroke)] decoration-1 underline-offset-4 hover:decoration-2">
+                Read more →
+              </a>
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+{{ else if or (eq $section "news") (eq $section "blog") }}
+
+  {{/* News / blog list — typographic, date-led */}}
+  <section class="relative">
+    <div class="container max-w-4xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
+      {{ if not .RegularPages }}
+        <p class="font-body text-[1.05rem] leading-[1.65] text-[color:var(--ink-muted)] italic">
+          No posts yet. Lab news, talks, and announcements will appear here.
+        </p>
+      {{ end }}
+      <ul class="space-y-10 lg:space-y-12">
+        {{ range .RegularPages }}
+          <li>
+            <p class="font-display uppercase tracking-[0.16em] text-xs text-[color:var(--ink-subtle)] mb-2">
+              {{ .Date.Format "January 2, 2006" }}
+            </p>
+            <h2 class="font-display text-[1.65rem] lg:text-[1.85rem] leading-[1.2] font-semibold mb-3">
+              <a href="{{ .RelPermalink }}" class="hover:text-[color:var(--accent)] no-underline">
+                {{ .Title }}
+              </a>
+            </h2>
+            <p class="font-body text-[1rem] leading-[1.65] text-[color:var(--ink-muted)] max-w-prose">
+              {{ .Summary }}
+            </p>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </section>
+
+{{ else }}
+
+  {{/* Default — clean linked list */}}
+  <section class="relative">
+    <div class="container max-w-4xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
+      <ul class="font-body text-[1.05rem] leading-[2] divide-y divide-[color:var(--border-warm)]">
+        {{ range .RegularPages }}
+          <li class="py-3">
+            <a href="{{ .RelPermalink }}" class="text-[color:var(--ink)] hover:text-[color:var(--accent)]">
+              {{ .Title }}
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </section>
+
+{{ end }}
+
+{{ end }}

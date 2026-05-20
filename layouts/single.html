@@ -1,0 +1,145 @@
+{{ define "main" }}
+
+{{ $section := .Section }}
+
+{{/* =========================== PAGE HEADER =========================== */}}
+<section class="relative">
+  <div class="container max-w-6xl mx-auto px-6 lg:px-8 pt-20 pb-12 lg:pt-28 lg:pb-14">
+
+    {{/* breadcrumb-style section kicker */}}
+    {{ if .CurrentSection }}
+      <p class="font-display uppercase tracking-[0.18em] text-sm text-[color:var(--ink-muted)] mb-6">
+        <a href="{{ .CurrentSection.RelPermalink }}" class="hover:text-[color:var(--accent)] no-underline">
+          {{ .CurrentSection.Title }}
+        </a>
+      </p>
+    {{ end }}
+
+    {{/* themes + status chips */}}
+    {{ if or .Params.themes (eq .Params.status "completed") }}
+      <div class="flex flex-wrap gap-1.5 mb-6">
+        {{ range .Params.themes }}
+          <span class="inline-block bg-[color:var(--accent-tint)] text-[color:var(--ink)] text-[0.7rem] uppercase tracking-wider font-medium rounded px-2 py-0.5">
+            {{ . | replaceRE "-" " " | title }}
+          </span>
+        {{ end }}
+        {{ if eq .Params.status "completed" }}
+          <span class="inline-block text-[color:var(--ink-subtle)] text-[0.7rem] uppercase tracking-wider font-medium rounded px-2 py-0.5 border border-[color:var(--border-warm)]">
+            Completed
+          </span>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    <h1 class="font-display text-[clamp(2.2rem,4.5vw,3.6rem)] leading-[1.08] font-semibold tracking-tight text-[color:var(--ink)] mb-6 max-w-4xl">
+      {{ .Title }}
+    </h1>
+
+    {{ with .Description }}
+      <p class="font-body text-[1.15rem] leading-[1.55] text-[color:var(--ink-muted)] max-w-3xl">
+        {{ . }}
+      </p>
+    {{ end }}
+
+    {{/* News-only: post date */}}
+    {{ if or (eq $section "news") (eq $section "blog") }}
+      <p class="font-display uppercase tracking-[0.16em] text-xs text-[color:var(--ink-subtle)] mt-6">
+        {{ .Date.Format "January 2, 2006" }}
+      </p>
+    {{ end }}
+  </div>
+  <div class="h-px bg-[color:var(--border-warm)]"></div>
+</section>
+
+{{/* =========================== BODY + META =========================== */}}
+<section class="relative">
+  <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+
+      {{/* main content — 8/12 */}}
+      <div class="lg:col-span-8">
+        <div class="font-body text-[1.0625rem] leading-[1.7] text-[color:var(--ink)] prose-meshlab">
+          {{ .Content }}
+        </div>
+
+        {{ if eq $section "projects" }}
+          {{ with .Params.repo }}
+            <div class="mt-10 pt-6 border-t border-[color:var(--border-warm)]">
+              <a href="{{ . }}" target="_blank" rel="noopener"
+                 class="font-body font-medium text-[0.95rem] text-[color:var(--accent)] hover:text-[color:var(--accent-hover)] underline decoration-[color:var(--accent-stroke)] decoration-1 underline-offset-4 hover:decoration-2 inline-flex items-center gap-2">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                  <path d="M12 0a12 12 0 0 0-3.79 23.39c.6.11.83-.26.83-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.74.08-.73.08-.73 1.21.09 1.85 1.25 1.85 1.25 1.08 1.85 2.83 1.32 3.52 1.01.11-.79.42-1.32.77-1.62-2.66-.3-5.47-1.33-5.47-5.94 0-1.31.47-2.39 1.24-3.23-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.31 1.23a11.5 11.5 0 0 1 6.02 0c2.3-1.55 3.31-1.23 3.31-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.92 1.24 3.23 0 4.62-2.81 5.63-5.49 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 0z"/>
+                </svg>
+                Source on GitHub →
+              </a>
+            </div>
+          {{ end }}
+        {{ end }}
+      </div>
+
+      {{/* meta sidebar — 4/12 */}}
+      <aside class="lg:col-span-4 lg:pt-1">
+        <div class="lg:sticky lg:top-24 lg:pl-8 lg:border-l lg:border-[color:var(--border-warm)] space-y-6 text-sm font-body">
+
+          {{ with .Params.lead }}
+            <div>
+              <p class="font-display uppercase tracking-[0.16em] text-xs text-[color:var(--ink-subtle)] mb-1.5">
+                Lead
+              </p>
+              <p class="text-[color:var(--ink)]">{{ . }}</p>
+            </div>
+          {{ end }}
+
+          {{ with .Params.members }}
+            <div>
+              <p class="font-display uppercase tracking-[0.16em] text-xs text-[color:var(--ink-subtle)] mb-1.5">
+                Members
+              </p>
+              <ul class="text-[color:var(--ink)] space-y-1">
+                {{ range . }}
+                  <li>{{ . }}</li>
+                {{ end }}
+              </ul>
+            </div>
+          {{ end }}
+
+          {{ with .Params.partners }}
+            <div>
+              <p class="font-display uppercase tracking-[0.16em] text-xs text-[color:var(--ink-subtle)] mb-1.5">
+                Partners
+              </p>
+              <ul class="text-[color:var(--ink)] space-y-1">
+                {{ range . }}
+                  <li>{{ . }}</li>
+                {{ end }}
+              </ul>
+            </div>
+          {{ end }}
+
+          {{ with .Params.year_start }}
+            <div>
+              <p class="font-display uppercase tracking-[0.16em] text-xs text-[color:var(--ink-subtle)] mb-1.5">
+                Period
+              </p>
+              <p class="text-[color:var(--ink)]">
+                {{ . }}{{ with $.Params.year_end }}–{{ . }}{{ else }}–{{ end }}
+              </p>
+            </div>
+          {{ end }}
+
+          {{ with .Params.status }}
+            <div>
+              <p class="font-display uppercase tracking-[0.16em] text-xs text-[color:var(--ink-subtle)] mb-1.5">
+                Status
+              </p>
+              <p class="text-[color:var(--ink)] capitalize">{{ . }}</p>
+            </div>
+          {{ end }}
+
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+{{ end }}
