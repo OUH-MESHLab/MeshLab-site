@@ -21,25 +21,17 @@
                    class="h-12 w-auto" />
             </a>
           {{ end }}
-          {{/* IVS logo (Intervensjonssenteret, OUS) — drop the SVG/PNG at
-               assets/images/ivs.png then uncomment this block:
           {{ $ivs := resources.Get "images/ivs.png" }}
           {{ with $ivs }}
-            {{ $resized := .Resize "100x" }}
+            {{ $resized := .Resize "200x" }}
             <a href="https://ous-research.no/intervention/" target="_blank" rel="noopener"
-               class="block" aria-label="The Intervention Centre (IVS), Oslo University Hospital">
+               class="block border-l border-[color:var(--border-warm)] pl-6 lg:pl-8 self-center"
+               aria-label="The Intervention Centre, Oslo University Hospital">
               <img src="{{ $resized.RelPermalink }}"
-                   alt="The Intervention Centre, Oslo University Hospital"
-                   width="60" height="48"
+                   alt="Oslo University Hospital · The Intervention Centre"
                    class="h-12 w-auto" />
             </a>
           {{ end }}
-          */}}
-          <a href="https://ous-research.no/intervention/" target="_blank" rel="noopener"
-             class="font-display uppercase tracking-[0.12em] text-sm text-[color:var(--ink-muted)] hover:text-[color:var(--accent)] border-l border-[color:var(--border-warm)] pl-6 lg:pl-8 self-center"
-             aria-label="The Intervention Centre (IVS), Oslo University Hospital">
-            IVS
-          </a>
         </div>
         <p class="font-body text-sm leading-[1.55] text-[color:var(--ink-muted)] mt-5 max-w-md">
           MESH|Lab is the medical-software research group of
