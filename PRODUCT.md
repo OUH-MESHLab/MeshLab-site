@@ -5,8 +5,8 @@ design work. It also serves as the canonical product brief for the site.
 
 ## What this site is
 
-The public website of **MESH|Lab** — the medical-software research group at
-Oslo University Hospital, affiliated with NTNU. GitHub organisation:
+The public website of **MESH|Lab** — the medical-software research group
+at Oslo University Hospital. GitHub organisation:
 [OUH-MESHLab](https://github.com/OUH-MESHLab).
 
 The site is a single, English-language, statically-rendered Hugo site
@@ -26,10 +26,10 @@ deployed to Netlify or Cloudflare Pages. It is read more than it is updated.
    considering a position. They want to know what the lab actually works
    on and whether the culture is interdisciplinary in practice.
 
-Press and the general public are explicitly de-prioritised. The site does
-not need plain-English lay summaries on every page; it does need them
+The general public is explicitly de-prioritised. The site does not need
+plain-English lay summaries on every page; it does need them
 *available* (research-theme pages, project summaries) so a clinician
-co-author or journalist can cite the lab without help.
+co-author can cite the lab without help.
 
 ## Mission and vision
 
@@ -138,7 +138,7 @@ site emphasises:
 
 ## Out of scope (for v1)
 
-- Lay-press blog content beyond announcements (`news/`).
+- Lay blog content beyond announcements (`news/`).
 - A members-only intranet or paper drafts area.
 - Self-service member sign-up; team rosters are maintained by the
   Head.

@@ -1,34 +1,34 @@
-############# English navigation ##############
+############# Navigation ##############
 
-# main menu
-[[main]]
-name = "Home"
-url = "/"
-weight = 1
-
-[[main]]
-name = "About"
-url = "/about"
-weight = 2
-
+# main menu (header)
 [[main]]
 name = "Research"
 url = "/research"
-weight = 3
+weight = 1
 
 [[main]]
 name = "Projects"
 url = "/projects"
-weight = 4
+weight = 2
+
+[[main]]
+name = "Team"
+url = "/team"
+weight = 3
 
 [[main]]
 name = "Publications"
 url = "/publications"
+weight = 4
+
+[[main]]
+name = "News"
+url = "/news"
 weight = 5
 
 [[main]]
-name = "Team"
-url = "/authors"
+name = "About"
+url = "/about"
 weight = 6
 
 
@@ -38,3 +38,17 @@ name = "About"
 url = "/about"
 weight = 1
 
+[[footer]]
+name = "Join us"
+url = "/join"
+weight = 2
+
+[[footer]]
+name = "Contact"
+url = "/contact"
+weight = 3
+
+[[footer]]
+name = "GitHub"
+url = "https://github.com/OUH-MESHLab"
+weight = 4

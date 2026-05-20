@@ -1,54 +1,66 @@
 ---
-# Banner
+# Home page
+title: "MESH|Lab"
+meta_title: "MESH|Lab — medical-software research at Oslo University Hospital"
+description: "MESH|Lab is the medical-software research group at Oslo University Hospital. We translate clinical needs into precision-medicine software — operating systems, infrastructure, and end-user applications."
+
+# Hero
 banner:
-  title: "MeshLab"
-  content: "Hugoplate is a free starter template built with Hugo and TailwindCSS, providing everything you need to jumpstart your Hugo project and save valuable time."
-  # Insert banner image below.
-  #image: "/images/banner.png"
+  title: "Software that makes precision care possible."
+  content: "Clinicians, researchers and patients connected through our software. MESH|Lab is the medical-software research group at Oslo University Hospital, working across operating systems, infrastructure, and end-user clinical applications."
+  # image: "/images/banner.png"
   button:
     enable: true
-    label: "About Us"
-    link: "/about"
+    label: "See our research"
+    link: "/research"
 
-# Features
+# Research themes (rendered as the four feature blocks)
 features:
-  - title: "What's Included in Hugoplate"
-    image: "/images/service-1.png"
-    content: "Hugoplate is a comprehensive starter template that includes everything you need to get started with your Hugo project. What's Included in Hugoplate"
+  - title: "Systems & infrastructure"
+    image: "/images/themes/systems-infrastructure.png"
+    content: "Reproducible, declaratively-configured operating systems and platforms for medical computing — built to meet the documentation and traceability demands of clinical-software regulation."
     bulletpoints:
-      - "10+ Pre-build pages"
-      - "95+ Google Pagespeed Score"
-      - "Build with Hugo and TailwindCSS for easy and customizable styling"
-      - "Fully responsive on all devices"
-      - "SEO-optimized for better search engine rankings"
-      - "**Open-source and free** for personal and commercial use"
-    button:
-      enable: false
-      label: "Get Started Now"
-      link: "#"
-
-  - title: "Discover the Key Features Of Hugo"
-    image: "/images/service-2.png"
-    content: "Hugo is an all-in-one web framework for building fast, content-focused websites. It offers a range of exciting features for developers and website creators. Some of the key features are:"
-    bulletpoints:
-      - "Zero JS, by default: No JavaScript runtime overhead to slow you down."
-      - "Customizable: Tailwind, MDX, and 100+ other integrations to choose from."
-      - "UI-agnostic: Supports React, Preact, Svelte, Vue, Solid, Lit and more."
+      - "SystoleOS — the lab's medical-applications OS"
+      - " — clinical-research visualisation infrastructure"
+      - "Long-term maintenance, not paper-publish-and-go"
     button:
       enable: true
-      label: "Get Started Now"
-      link: "https://github.com/zeon-studio/hugoplate"
+      label: "Explore the theme"
+      link: "/research/systems-infrastructure"
 
-  - title: "The Top Reasons to Choose Hugo for Your Hugo Project"
-    image: "/images/service-3.png"
-    content: "With Hugo, you can build modern and content-focused websites without sacrificing performance or ease of use."
+  - title: "Image-guided surgery & navigation"
+    image: "/images/themes/image-guided-surgery.png"
+    content: "Patient-specific surgical planning and intra-operative guidance, built on 3D Slicer and integrated with the navigation hardware operating rooms already use."
     bulletpoints:
-      - "Instantly load static sites for better user experience and SEO."
-      - "Intuitive syntax and support for popular frameworks make learning and using Hugo a breeze."
-      - "Use any front-end library or framework, or build custom components, for any project size."
-      - "Built on cutting-edge technology to keep your projects up-to-date with the latest web standards."
+      - "SlicerLiver — patient-specific liver-resection planning"
+      - " — stereotactic electrode-trajectory planning"
+      - " — open planning meets certified navigation"
     button:
-      enable: false
-      label: ""
-      link: ""
+      enable: true
+      label: "Explore the theme"
+      link: "/research/image-guided-surgery"
+
+  - title: "Surgical simulation & robotics"
+    image: "/images/themes/simulation-robotics.png"
+    content: "Soft-tissue simulation under a surgeon's hand, wired through ROS 2 to real robots — research-bench economics for surgical-robotics investigation."
+    bulletpoints:
+      - "SlicerSOFA + ROS — simulation and robotics in one scene"
+      - "Consumer-grade haptics for research-grade behaviour"
+      - "Reproducible from a single SystoleOS manifest"
+    button:
+      enable: true
+      label: "Explore the theme"
+      link: "/research/simulation-robotics"
+
+  - title: "Clinical data & AI"
+    image: "/images/themes/data-ai.png"
+    content: "Getting clinical data — bedside-monitor waveforms, imaging archives, domain-specific signal sources — into the form research and AI workflows actually need."
+    bulletpoints:
+      - "MONK — Nihon Kohden waveform extraction"
+      - " — clinical-research signals in radiology software"
+      - "TCIA augmentation for representative imaging benchmarks"
+    button:
+      enable: true
+      label: "Explore the theme"
+      link: "/research/data-ai"
 ---
