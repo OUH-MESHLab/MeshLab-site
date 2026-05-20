@@ -1,0 +1,86 @@
+{{/* MESH|Lab header override — typography-first, accessible, no dark-mode debt */}}
+<header class="meshlab-header relative z-30 {{ if site.Params.navbar_fixed }}sticky top-0{{ end }}"
+        style="background-color: color-mix(in oklab, var(--canvas) 88%, transparent); backdrop-filter: saturate(120%) blur(8px); -webkit-backdrop-filter: saturate(120%) blur(8px); border-bottom: 1px solid var(--border-warm);">
+  <div class="container max-w-6xl mx-auto px-6 lg:px-8">
+    <nav class="flex items-center justify-between gap-6 py-4 lg:py-5" aria-label="Primary">
+
+      {{/* logo */}}
+      <a class="navbar-brand block shrink-0" href="{{ site.Home.RelPermalink }}" aria-label="MESH|Lab home">
+        {{ partial "logo" (dict) }}
+      </a>
+
+      {{/* mobile toggle */}}
+      <input id="nav-toggle" type="checkbox" class="peer hidden" aria-label="Toggle navigation" />
+      <label for="nav-toggle"
+             class="lg:hidden order-3 cursor-pointer p-2 -m-2 text-[color:var(--ink)] hover:text-[color:var(--accent)]"
+             aria-controls="primary-nav">
+        <span class="sr-only">Open menu</span>
+        <svg id="show-button" class="h-6 w-6 fill-current block peer-checked:hidden" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+        </svg>
+      </label>
+
+      {{/* main nav */}}
+      <ul id="primary-nav"
+          class="navbar-nav order-3 hidden peer-checked:flex peer-checked:flex-col absolute peer-checked:relative top-full left-0 right-0 peer-checked:top-auto bg-[color:var(--canvas)] lg:bg-transparent border-b lg:border-b-0 border-[color:var(--border-warm)] py-4 lg:py-0 px-6 lg:px-0 lg:flex lg:flex-row lg:items-center gap-1 lg:gap-x-7 lg:order-1 w-full lg:w-auto">
+        {{ $currentURL := .RelPermalink }}
+        {{ range site.Menus.main }}
+          {{/* mark active if the current URL is at-or-below this menu item's URL */}}
+          {{ $itemURL := .URL | relLangURL }}
+          {{ $isActive := or (eq $currentURL $itemURL)
+                             (and (ne $itemURL "/") (hasPrefix $currentURL $itemURL)) }}
+          <li class="nav-item">
+            <a class="font-body text-[0.95rem] font-medium text-[color:var(--ink)] hover:text-[color:var(--accent)] py-2 lg:py-1 inline-block transition-colors duration-150 {{ if $isActive }}is-active{{ end }}"
+               {{ if findRE `^https?` .URL }}target="_blank" rel="noopener"{{ end }}
+               {{ if $isActive }}aria-current="page"{{ end }}
+               href="{{ if findRE `^https?` .URL }}{{ .URL }}{{ else }}{{ .URL | relLangURL }}{{ end }}">
+              {{ .Name }}
+            </a>
+          </li>
+        {{ end }}
+
+        {{/* CTA — also shows in the mobile menu */}}
+        {{ if site.Params.navigation_button.enable }}
+          <li class="lg:hidden mt-3 mb-1">
+            <a class="inline-block font-body font-medium text-sm text-[color:var(--accent)] hover:text-[color:var(--accent-hover)] underline decoration-[color:var(--accent-stroke)] decoration-1 underline-offset-4"
+               href="{{ site.Params.navigation_button.link | relLangURL }}">
+              {{ site.Params.navigation_button.label }} →
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+
+      {{/* right-side actions */}}
+      <div class="flex items-center gap-3 lg:gap-5 order-2 lg:order-3">
+        {{ with site.Params.search }}
+          {{ if .enable }}
+            <button aria-label="Open search"
+                    class="p-2 -m-2 text-[color:var(--ink)] hover:text-[color:var(--accent)] transition-colors duration-150"
+                    data-target="search-modal">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"/>
+                <path d="m20 20-3.5-3.5"/>
+              </svg>
+            </button>
+          {{ end }}
+        {{ end }}
+
+        {{ if site.Params.navigation_button.enable }}
+          <a href="{{ site.Params.navigation_button.link | relLangURL }}"
+             class="hidden lg:inline-block font-body font-medium text-sm text-[color:var(--accent)] hover:text-[color:var(--accent-hover)] underline decoration-[color:var(--accent-stroke)] decoration-1 underline-offset-4 hover:decoration-2">
+            {{ site.Params.navigation_button.label }} →
+          </a>
+        {{ end }}
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* Active nav-link gets an accent-stroke underline */
+  .meshlab-header .nav-item .is-active {
+    color: var(--accent);
+    box-shadow: inset 0 -2px 0 var(--accent-stroke);
+  }
+</style>
