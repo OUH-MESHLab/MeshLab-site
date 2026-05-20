@@ -1,10 +1,10 @@
 #################### default parameters ############################
 # Logo
 favicon = "images/favicon.png"
-logo = "images/logo.svg"
+logo = "images/logo.png"
 logo_darkmode = ""
-logo_width = ""
-logo_height = "32px"
+logo_width = "150"
+logo_height = "44"
 logo_webp = false
 # logo text shows when logo image is missing
 logo_text = "MESH|Lab"
