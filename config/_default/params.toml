@@ -24,6 +24,11 @@ custom_script = ""
 # copyright (rendered in footer)
 copyright = "© MESH|Lab — Oslo University Hospital"
 
+# Manifest / PWA brand colors — mirror DESIGN.md tokens
+[variables]
+color_primary = "#1A1A18"   # ink
+body_color    = "#FBFAF6"   # canvas
+
 # Preloader
 # preloader module: https://github.com/gethugothemes/hugo-modules/tree/master/components/preloader
 [preloader]

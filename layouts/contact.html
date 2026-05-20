@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+<section class="relative">
+  <div class="container max-w-6xl mx-auto px-6 lg:px-8 pt-20 pb-12 lg:pt-28 lg:pb-16">
+    <p class="font-display uppercase tracking-[0.18em] text-sm text-[color:var(--ink-muted)] mb-6">
+      MESH|Lab
+    </p>
+    <h1 class="font-display text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] font-semibold tracking-tight text-[color:var(--ink)] max-w-4xl">
+      {{ .Title }}
+    </h1>
+  </div>
+  <div class="h-px bg-[color:var(--border-warm)]"></div>
+</section>
+
+<section class="relative">
+  <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
+    <div class="max-w-2xl font-body text-[1.0625rem] leading-[1.7] text-[color:var(--ink)] prose-meshlab">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+
+{{ end }}

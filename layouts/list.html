@@ -72,11 +72,11 @@
                 </span>
               {{ end }}
             </div>
-            <h3 class="font-display text-[1.4rem] leading-[1.2] font-semibold mb-3 text-[color:var(--ink)]">
+            <h2 class="font-display text-[1.4rem] leading-[1.2] font-semibold mb-3 text-[color:var(--ink)]">
               <a href="{{ .RelPermalink }}" class="hover:text-[color:var(--accent)] no-underline transition-colors duration-150">
                 {{ .Title }}
               </a>
-            </h3>
+            </h2>
             <p class="font-body text-[0.85rem] text-[color:var(--ink-muted)] mb-4">
               {{ with .Params.lead }}{{ . }}{{ end }}
               {{ with .Params.year_start }} · {{ . }}{{ with $.Params.year_end }}–{{ . }}{{ else }}–{{ end }}{{ end }}

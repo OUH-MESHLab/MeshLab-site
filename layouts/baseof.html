@@ -17,15 +17,9 @@
       Skip to main content
     </a>
 
-    {{ if hugo.IsProduction }}
-      {{ partialCached "preloader.html" . }}
-      {{ partialCached "gtm-noscript.html" . }}
-    {{ else }}
-      {{ partial "preloader.html" . }}
+    {{ if not hugo.IsProduction }}
       {{ partial "components/tw-size-indicator.html" . }}
     {{ end }}
-
-    {{ partialCached "announcement.html" . }}
 
     {{ partial "essentials/header.html" . }}
     {{ partial "search-modal.html" (dict "Context" . ) }}

@@ -1,0 +1,28 @@
+{
+  "name": "{{site.Title}}",
+  "short_name": "{{site.Title}}",
+  "lang": "{{ site.Language.Locale | default `en-us` }}",
+  "display": "standalone",
+  "orientation": "any",
+  "start_url": "{{ site.BaseURL | absURL }}?utm_source=web_app_manifest",
+  "background_color": "{{ site.Params.variables.body_color | default `#FBFAF6`}}",
+  "theme_color": "{{ site.Params.variables.color_primary | default `#1A1A18`}}",
+  {{ $icon := site.Params.favicon }}
+  {{ if and $icon (fileExists (add `assets/` $icon)) }}
+    {{ $icon := resources.Get $icon }}
+    {{ $i48  := $icon.Resize  "48x48 png" }}
+    {{ $i72  := $icon.Resize  "72x72 png" }}
+    {{ $i96  := $icon.Resize  "96x96 png" }}
+    {{ $i144 := $icon.Resize "144x144 png" }}
+    {{ $i192 := $icon.Resize "192x192 png" }}
+    {{ $i512 := $icon.Resize "512x512 png" }}
+    "icons": [
+      { "src": "{{ $i48.RelPermalink  }}", "sizes":  "48x48", "type": "image/png" },
+      { "src": "{{ $i72.RelPermalink  }}", "sizes":  "72x72", "type": "image/png" },
+      { "src": "{{ $i96.RelPermalink  }}", "sizes":  "96x96", "type": "image/png" },
+      { "src": "{{ $i144.RelPermalink }}", "sizes": "144x144", "type": "image/png" },
+      { "src": "{{ $i192.RelPermalink }}", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+      { "src": "{{ $i512.RelPermalink }}", "sizes": "512x512", "type": "image/png" }
+    ]
+  {{ end }}
+}
