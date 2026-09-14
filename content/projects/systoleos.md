@@ -5,7 +5,7 @@ description: "A reproducible, declaratively-configured operating system for medi
 status: "active"
 themes: ["systems-infrastructure"]
 lead: "Rafael Palomar"
-members: ["Khai Duong", "Omar"]
+members: ["Khai Duong", "Omar El Hajj"]
 partners: []
 year_start: 2023
 image: "/images/projects/systoleos.png"

@@ -4,10 +4,27 @@
   <div class="container max-w-6xl mx-auto px-6 lg:px-8">
     <nav class="flex items-center justify-between gap-6 py-4 lg:py-5" aria-label="Primary">
 
-      {{/* logo */}}
-      <a class="navbar-brand block shrink-0" href="{{ site.Home.RelPermalink }}" aria-label="MESH|Lab home">
-        {{ partial "logo" (dict) }}
-      </a>
+      {{/* logo + host institution */}}
+      <div class="flex items-center shrink-0">
+        <a class="navbar-brand block" href="{{ site.Home.RelPermalink }}" aria-label="MESH|Lab home">
+          {{ partial "logo" (dict) }}
+        </a>
+        {{/* The Intervention Centre hosts the lab, so its mark belongs beside
+          the wordmark. Hidden below xl: with six menu items the bar is already
+          tight, and two crowded logos weaken both. The footer carries it at
+          every width. */}}
+        {{ with resources.Get "images/ivs.png" }}
+          {{ $ivs := .Resize "200x" }}
+          <a href="https://ous-research.no/intervention/" target="_blank" rel="noopener"
+             class="hidden xl:block border-l border-[color:var(--border-warm)] ml-5 pl-5"
+             aria-label="The Intervention Centre, Oslo University Hospital">
+            <img src="{{ $ivs.RelPermalink }}"
+                 alt="Oslo University Hospital · The Intervention Centre"
+                 width="100" height="36"
+                 class="h-9 w-auto" />
+          </a>
+        {{ end }}
+      </div>
 
       {{/* mobile toggle */}}
       <input id="nav-toggle" type="checkbox" class="peer hidden" aria-label="Toggle navigation" />
@@ -22,7 +39,7 @@
 
       {{/* main nav */}}
       <ul id="primary-nav"
-          class="navbar-nav order-3 hidden peer-checked:flex peer-checked:flex-col absolute peer-checked:relative top-full left-0 right-0 peer-checked:top-auto bg-[color:var(--canvas)] lg:bg-transparent border-b lg:border-b-0 border-[color:var(--border-warm)] py-4 lg:py-0 px-6 lg:px-0 lg:flex lg:flex-row lg:items-center gap-1 lg:gap-x-7 lg:order-1 w-full lg:w-auto">
+          class="navbar-nav order-3 hidden peer-checked:flex peer-checked:flex-col absolute peer-checked:relative lg:static top-full left-0 right-0 peer-checked:top-auto bg-[color:var(--canvas)] lg:bg-transparent border-b lg:border-b-0 border-[color:var(--border-warm)] py-4 lg:py-0 px-6 lg:px-0 lg:flex lg:flex-row lg:items-center gap-1 lg:gap-x-7 lg:order-1 w-full lg:w-auto">
         {{ $currentURL := .RelPermalink }}
         {{ range site.Menus.main }}
           {{/* mark active if the current URL is at-or-below this menu item's URL */}}
