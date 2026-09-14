@@ -21,10 +21,9 @@ investigation.
 - **Slicer ↔ SOFA integrations** that bring deformable-tissue
   simulation directly into the planning environment surgeons already
   use.
-- **Haptic-feedback demonstrators** that combine the above with
-  consumer-grade haptic devices to make organ-deformation behaviour
-  available to clinical researchers without the cost of a research-
-  grade rig.
+- **Demonstrators** that put Slicer to work in simulation and robotics
+  environments, combining [SlicerSOFA](/projects/slicersofa/) with
+  [SlicerROS2](https://github.com/rosmed/slicer_ros2_module).
 
 ## Why it matters
 
