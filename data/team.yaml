@@ -51,7 +51,7 @@ head:
       medical computing, and the long-term maintenance of open-source
       clinical software.</p>
       <p>He is the lead maintainer of SystoleOS, SlicerLiver,
-      SlicerSOFA + SlicerROS2, and the Brainlab/SystoleOS navigation bridge.
+      SlicerSOFA, and the Brainlab/SystoleOS navigation bridge.
       Externally he collaborates with Brigham and Women's Hospital,
       Inria, Karlsruhe Institute of Technology, the Paris Brain
       Institute, and Queen's University, and serves on European
@@ -66,8 +66,8 @@ head:
         title: SystoleOS
       - slug: slicerliver
         title: SlicerLiver
-      - slug: slicersofa-slicerros2
-        title: SlicerSOFA + SlicerROS2
+      - slug: slicersofa
+        title: SlicerSOFA
     github: rafaelpalomar
     email: rafael.palomar@ous-research.no
     weight: 1
@@ -214,7 +214,7 @@ students:
     affiliation: The Intervention Centre, OUS — joint with Inria
     bio_short: Soft-tissue simulation + robotics integration in 3D Slicer.
     bio: |
-      <p>Eléonore works on the SlicerSOFA + SlicerROS2 integration — bringing
+      <p>Eléonore works on SlicerSOFA and its ROS 2 bridge — bringing
       deformable-tissue simulation and robotic control into the
       planning environment surgeons already use. The work is conducted
       jointly with Inria.</p>
@@ -223,8 +223,8 @@ students:
       - Robotics
       - SOFA framework
     projects:
-      - slug: slicersofa-slicerros2
-        title: SlicerSOFA + SlicerROS2
+      - slug: slicersofa
+        title: SlicerSOFA
     weight: 10
 
   - slug: khai-duong

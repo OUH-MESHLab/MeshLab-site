@@ -29,7 +29,7 @@ medical-software regulators require.
 
 We use SystoleOS as the substrate underneath the lab's other
 projects — including the
-[SlicerSOFA + SlicerROS2](/projects/slicersofa-slicerros2/) simulation
+[SlicerSOFA](/projects/slicersofa/) simulation
 benches — and increasingly with external partners deploying clinical
 research workstations.
 

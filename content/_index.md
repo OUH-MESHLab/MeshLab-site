@@ -41,7 +41,7 @@ features:
     image: "/images/themes/simulation-robotics.png"
     content: "Soft-tissue simulation under a surgeon's hand, wired through ROS 2 to real robots — research-bench economics for surgical-robotics investigation."
     bulletpoints:
-      - "SlicerSOFA + SlicerROS2 — simulation and robotics in one scene"
+      - "SlicerSOFA — real-time soft-tissue simulation, with a ROS 2 bridge to robotic and haptic hardware"
       - "Consumer-grade haptics for research-grade behaviour"
       - "Reproducible from a single SystoleOS manifest"
     button:

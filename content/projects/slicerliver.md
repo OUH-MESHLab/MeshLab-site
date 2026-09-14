@@ -26,4 +26,4 @@ radiologists already use.
 
 The project sits at the centre of MESH|Lab's surgical-planning work
 and connects to the lab's downstream simulation
-([SlicerSOFA + SlicerROS2](/projects/slicersofa-slicerros2/)) pipeline.
+([SlicerSOFA](/projects/slicersofa/)) pipeline.
