@@ -27,7 +27,7 @@ features:
     content: "Reproducible, declaratively-configured operating systems and platforms for medical computing — built to meet the documentation and traceability demands of clinical-software regulation."
     bulletpoints:
       - "SystoleOS — the lab's medical-applications OS"
-      - "Long-term maintenance, not paper-publish-and-go"
+      - "Long-term maintenance of the platforms other projects depend on"
     button:
       enable: true
       label: "Explore the theme"
