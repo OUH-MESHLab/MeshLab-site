@@ -232,17 +232,15 @@ students:
     role: MSc student
     specialty: Software Engineer
     affiliation: The Intervention Centre, OUS
-    bio_short: Patient-monitoring data extraction and lab infrastructure.
+    bio_short: Reproducible operating systems and lab infrastructure.
     bio: |
-      <p>Khai works on the MONK system (Nihon Kohden waveform extraction)
-      and SystoleOS — the lab's foundational systems and clinical-data
-      integration projects.</p>
+      <p>Khai works on SystoleOS — the lab's reproducible operating
+      system for medical applications — and on the infrastructure the
+      lab's clinical research runs on.</p>
     expertise:
       - Software engineering
       - Patient monitoring
     projects:
-      - slug: monk-nihon-kohden
-        title: MONK
       - slug: systoleos
         title: SystoleOS
     weight: 20
@@ -305,9 +303,22 @@ visiting:
 
 alumni:
   ## Past members. Compact rendering: name + period + (optional role).
-  ## Example:
-  ##
+
+  - name: Aliaan Azam
+    role: Bachelor student · MONK
+    period: "2024"
+    weight: 10
+
+  - name: Sondre Espeland
+    role: Bachelor student · MONK
+    period: "2024"
+    weight: 20
+
+  ## A third student worked on MONK (GitHub handle `jonafoll`), but the
+  ## handle carries no display name and neither the repositories nor the
+  ## mail archive give a full one. Add them here once confirmed:
+  #
   # - name: First Last
-  #   role: Engineer
-  #   period: "2022–2024"
-  #   weight: 10
+  #   role: Bachelor student · MONK
+  #   period: "2024"
+  #   weight: 30

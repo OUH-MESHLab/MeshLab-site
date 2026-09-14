@@ -5,7 +5,7 @@ description: "Open tooling to extract patient-monitoring waveform data from Niho
 status: "active"
 themes: ["data-ai"]
 lead: "Rafael Palomar"
-members: ["Khai Duong"]
+members: ["Aliaan Azam", "Sondre Espeland"]
 partners: []
 year_start: 2024
 image: "/images/projects/monk.png"
