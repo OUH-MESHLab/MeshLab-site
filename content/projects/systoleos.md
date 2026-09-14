@@ -11,6 +11,11 @@ year_start: 2023
 image: "/images/projects/systoleos.png"
 logo: "/images/projects/systoleos.png"
 repo: "https://github.com/SystoleOS"
+figure: "systoleos.png"
+figure_alt: "The SystoleOS wordmark"
+# A mark rather than evidence: an operating system has nothing to screenshot
+# until one is booted. Replace with a desktop capture when convenient.
+figure_credit: "SystoleOS."
 weight: 1
 ---
 

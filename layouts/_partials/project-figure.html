@@ -1,0 +1,45 @@
+{{/* A project's figure, in two placements.
+
+  "card" fills a fixed 16:9 crop so a row of project cards stays on one grid line
+  whatever the source aspect ratio; "lead" keeps the true aspect on the project's
+  own page, where the image is the evidence and cropping would discard exactly
+  what the reader came to see. Both go through Hugo's pipeline (WebP, 2x srcset,
+  explicit width/height so nothing reflows).
+
+  Figures are screenshots and paper figures from our own public repositories;
+  `figure_credit` records the provenance of each.
+
+  Params: Page, Mode ("card"|"lead"). */}}
+
+{{ $page := .Page }}
+{{ $mode := .Mode | default "lead" }}
+{{ with $page.Params.figure }}
+  {{ $src := resources.Get (printf "images/figures/%s" .) }}
+  {{ if $src }}
+    {{ $alt := $page.Params.figure_alt | default $page.Title }}
+    {{ if eq $mode "card" }}
+      {{ $img := $src.Fill "640x360 smart webp q85" }}
+      {{ $img2x := $src.Fill "1280x720 smart webp q80" }}
+      <img src="{{ $img.RelPermalink }}"
+           srcset="{{ $img.RelPermalink }} 1x, {{ $img2x.RelPermalink }} 2x"
+           width="{{ $img.Width }}" height="{{ $img.Height }}"
+           alt="{{ $alt }}" loading="lazy"
+           class="w-full rounded-md border border-[color:var(--border-warm)] object-cover mb-5" />
+    {{ else }}
+      {{ $img := $src.Resize "1000x webp q85" }}
+      {{ $img2x := $src.Resize "2000x webp q80" }}
+      <figure class="mb-10">
+        <img src="{{ $img.RelPermalink }}"
+             srcset="{{ $img.RelPermalink }} 1x, {{ $img2x.RelPermalink }} 2x"
+             width="{{ $img.Width }}" height="{{ $img.Height }}"
+             alt="{{ $alt }}" loading="eager"
+             class="w-full rounded-md border border-[color:var(--border-warm)]" />
+        {{ with $page.Params.figure_credit }}
+          <figcaption class="font-body text-[0.85rem] leading-[1.5] text-[color:var(--ink-subtle)] mt-3">
+            {{ . | markdownify }}
+          </figcaption>
+        {{ end }}
+      </figure>
+    {{ end }}
+  {{ end }}
+{{ end }}

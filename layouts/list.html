@@ -60,6 +60,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
         {{ range sort .RegularPages "Params.weight" "asc" }}
           <article class="bg-[color:var(--surface)] border border-[color:var(--border-warm)] rounded-md p-6 lg:p-7 hover:shadow-[0_1px_2px_rgb(0_0_0_/_0.04)] transition-shadow duration-150 flex flex-col">
+            {{ partial "project-figure" (dict "Page" . "Mode" "card") }}
             <div class="flex flex-wrap gap-1.5 mb-4">
               {{ range .Params.themes }}
                 <span class="inline-block bg-[color:var(--accent-tint)] text-[color:var(--ink)] text-[0.7rem] uppercase tracking-wider font-medium rounded px-2 py-0.5">

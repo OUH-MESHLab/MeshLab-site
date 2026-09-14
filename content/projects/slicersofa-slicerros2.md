@@ -10,6 +10,9 @@ partners: ["Inria"]
 year_start: 2023
 image: "/images/projects/slicersofa-slicerros2.png"
 repo: "https://github.com/OUH-MESHLab/sofa-ros-haptic-demo"
+figure: "slicersofa-slicerros2.jpg"
+figure_alt: "A liver mesh enclosed in the sparse simulation grid its deformation is solved on"
+figure_credit: "A liver enclosed in the sparse grid its deformation is solved on — figure from our SlicerSOFA paper."
 weight: 3
 ---
 

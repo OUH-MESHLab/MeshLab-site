@@ -11,6 +11,9 @@ year_start: 2020
 image: "/images/projects/slicerliver.png"
 logo: "/images/projects/slicerliver.png"
 repo: "https://github.com/ALive-research/SlicerLiver"
+figure: "slicerliver.png"
+figure_alt: "A segmented liver with its portal and hepatic vessel trees and two tumours, rendered in 3D Slicer"
+figure_credit: "From SlicerLiver's own tutorial material ([ALive-research/Slicer-Liver](https://github.com/ALive-research/Slicer-Liver))."
 weight: 2
 ---
 
