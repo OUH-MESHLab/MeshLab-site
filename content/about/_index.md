@@ -36,7 +36,7 @@ Across these layers we organise the work along four research themes:
 
 ## How we work
 
-Six principles shape day-to-day decisions and project selection:
+Five principles shape day-to-day decisions and project selection:
 
 - **Needs-driven.** We continuously map unmet clinical problems and
   rank them by impact and feasibility. The research roadmap follows
@@ -53,21 +53,6 @@ Six principles shape day-to-day decisions and project selection:
   open-source; we maintain them long-term, not just at paper-publish
   time. See the
   [OUH-MESHLab GitHub organisation](https://github.com/OUH-MESHLab).
-- **Measured.** We track adoption — downloads, citations, deployed
-  installations — and let those numbers reshape priorities.
-
-## Where we sit
-
-MESH|Lab is **decentralised by design**. The lab functions as a
-network rather than a hierarchy: a small core at OUS coordinates
-with associate members in clinical and technical roles, visiting
-researchers from partner institutions, and external clinical
-consultants in domains we don't carry in-house.
-
-Projects live on
-[GitHub](https://github.com/OUH-MESHLab) — *if it's not registered, it
-does not exist.* Coordination happens through one monthly all-hands
-sync (one topic per meeting) plus focused project meetings as needed.
 
 ## Our partners
 
