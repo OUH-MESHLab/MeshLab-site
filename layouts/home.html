@@ -4,7 +4,11 @@
 <section class="relative overflow-hidden hero-section">
   {{/* research-image background, lightly tinted toward canvas so it reads as atmosphere */}}
   <div class="absolute inset-0 hero-backdrop" aria-hidden="true">
-    {{ $hero := resources.Get "images/hero-research.jpg" }}
+    {{/* The Intervention Centre's own cutaway illustration of its theatre
+      suite (it carries the "Intervensjonssenteret www.ivs.no" credit in the
+      artwork). Replaces a robotic-stereotactic photo of unknown provenance:
+      no source file on disk, EXIF stripped, no stated owner. */}}
+    {{ $hero := resources.Get "images/hero-ivs-theatres.jpg" }}
     {{ if $hero }}
       {{ $heroLg := $hero.Resize "1920x webp q70" }}
       {{ $heroMd := $hero.Resize "1280x webp q70" }}
@@ -15,8 +19,7 @@
                 {{ $heroMd.RelPermalink }} 1280w,
                 {{ $heroLg.RelPermalink }} 1920w"
         sizes="100vw"
-        alt=""
-        aria-hidden="true"
+        alt="Cutaway illustration of the operating theatres at The Intervention Centre, Oslo University Hospital"
         loading="eager"
         decoding="async"
         class="hero-img" />
@@ -53,6 +56,13 @@
       {{ end }}
     </div>
   </div>
+  {{/* Credit for the backdrop. The artwork carries its own credit, but the
+    hero crop cuts it off, so it is stated here rather than quietly dropped. */}}
+  <p class="container max-w-6xl mx-auto px-6 lg:px-8 pb-6 relative font-body text-[0.75rem] text-[color:var(--ink-subtle)] text-right">
+    Illustration: The Intervention Centre, Oslo University Hospital
+    (<a href="https://www.ivs.no" target="_blank" rel="noopener"
+        class="hover:text-[color:var(--ink-muted)]">ivs.no</a>)
+  </p>
   {{/* full-bleed rule under hero */}}
   <div class="h-px bg-[color:var(--border-warm)] relative"></div>
 </section>
