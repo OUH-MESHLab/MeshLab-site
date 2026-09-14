@@ -187,7 +187,7 @@ associate:
   - slug: ruoyan-meng
     name: Ruoyan Meng
     role: technical
-    specialty: PhD Candidate
+    specialty: Medical Visualization
     affiliation: The Intervention Centre, OUS · NTNU
     photo: /images/team/ruoyan.jpg
     bio_short: Liver-resection planning and visualisation in 3D Slicer.
@@ -314,11 +314,7 @@ alumni:
     period: "2024"
     weight: 20
 
-  ## A third student worked on MONK (GitHub handle `jonafoll`), but the
-  ## handle carries no display name and neither the repositories nor the
-  ## mail archive give a full one. Add them here once confirmed:
-  #
-  # - name: First Last
-  #   role: Bachelor student · MONK
-  #   period: "2024"
-  #   weight: 30
+  - name: Jonathan Folland
+    role: Bachelor student · MONK
+    period: "2024"
+    weight: 30
