@@ -14,6 +14,12 @@ banner:
     label: "See our research"
     link: "/research"
 
+# Research section heading + lead (rendered above the four feature blocks)
+research:
+  eyebrow: "Research"
+  title: "One path from clinic to software"
+  lead: "The work runs from the operating system a clinical workstation boots, through the infrastructure research depends on, to the application a clinician plans with. Four themes organise it."
+
 # Research themes (rendered as the four feature blocks)
 features:
   - title: "Systems & infrastructure"

@@ -74,17 +74,15 @@
       <div class="grid grid-cols-12 gap-10 lg:gap-16 mb-14">
         <div class="col-span-12 lg:col-span-4">
           <p class="font-display uppercase tracking-[0.18em] text-sm text-[color:var(--ink-muted)] mb-3">
-            Research
+            {{ site.Home.Params.research.eyebrow | default "Research" }}
           </p>
           <h2 class="font-display text-[2.2rem] lg:text-[2.6rem] leading-[1.1] font-semibold tracking-tight text-[color:var(--ink)]">
-            Four themes, one stack.
+            {{ site.Home.Params.research.title }}
           </h2>
         </div>
         <div class="col-span-12 lg:col-span-8 lg:pt-2">
           <p class="font-body text-[1.05rem] leading-[1.65] text-[color:var(--ink-muted)] max-w-2xl">
-            Our work spans operating systems, clinical infrastructure, and end-user
-            medical applications. Each project lives under one or more of these themes;
-            many sit across the boundary deliberately.
+            {{ site.Home.Params.research.lead }}
           </p>
         </div>
       </div>
