@@ -229,7 +229,7 @@
   <div class="h-px bg-[color:var(--border-warm)]"></div>
 </section>
 
-{{/* =========================== COLLABORATOR STRIP (Swiper ticker) =========================== */}}
+{{/* =========================== COLLABORATOR STRIP (CSS marquee) =========================== */}}
 <section class="relative">
   <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
     <p class="font-display uppercase tracking-[0.18em] text-xs text-[color:var(--ink-subtle)] mb-8">
@@ -260,60 +260,32 @@
             "url" "https://www.nvidia.com")
     }}
     {{/* fade-edge mask so the ticker feels infinite */}}
+    {{/* Two identical groups scrolled by exactly one group width: the wrap is
+      seamless because the second group is already in place when the first
+      finishes. A Swiper loop re-arranges slides at the boundary, which is what
+      made the strip stutter. No JS. */}}
     <div class="partner-strip-mask">
-      <div class="swiper partner-slider">
-        <div class="swiper-wrapper items-center">
-          {{ range $partners }}
-            <div class="swiper-slide" style="width: auto;">
-              <a href="{{ .url }}" target="_blank" rel="noopener"
-                 aria-label="{{ .alt }}"
-                 class="block">
-                <img src="{{ .src }}"
-                     alt="{{ .alt }}"
-                     loading="lazy"
-                     class="partner-logo h-10 lg:h-12 w-auto max-w-[160px] object-contain" />
-              </a>
-            </div>
-          {{ end }}
-        </div>
+      <div class="marquee">
+        {{ range $i := (seq 2) }}
+          <ul class="marquee-group" {{ if gt $i 1 }}aria-hidden="true"{{ end }}>
+            {{ range $partners }}
+              <li>
+                <a href="{{ .url }}" target="_blank" rel="noopener"
+                   aria-label="{{ .alt }}" class="block"
+                   {{ if gt $i 1 }}tabindex="-1"{{ end }}>
+                  <img src="{{ .src }}"
+                       alt="{{ if gt $i 1 }}{{ else }}{{ .alt }}{{ end }}"
+                       loading="lazy"
+                       class="partner-logo h-10 lg:h-12 w-auto max-w-[160px] object-contain" />
+                </a>
+              </li>
+            {{ end }}
+          </ul>
+        {{ end }}
       </div>
     </div>
   </div>
 </section>
 
-{{/* Swiper init for the partner ticker — Swiper is bundled in /js/script.js by Hugoplate */}}
-<script>
-  (function () {
-    function initPartnerSlider() {
-      if (typeof Swiper === 'undefined') return false;
-      const el = document.querySelector('.partner-slider');
-      if (!el || el.swiper) return true;
-      // An endless ticker is exactly the case WCAG 2.2.2 is about: motion that
-      // runs beside content with no stop control. Mouse-hover pausing does not
-      // help a keyboard or touch user, so reduced-motion gets a static row that
-      // can still be swiped.
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      new Swiper('.partner-slider', {
-        slidesPerView: 'auto',
-        spaceBetween: 56,
-        loop: true,
-        // Duration of one slide's travel. At 8000 the strip crawled; 2500 reads
-        // as a ticker rather than a stall.
-        speed: reduceMotion ? 0 : 2500,
-        autoplay: reduceMotion ? false : { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true },
-        freeMode: { enabled: true, momentum: false },
-        allowTouchMove: true,
-        a11y: { enabled: true, containerMessage: 'Collaborator logos' },
-      });
-      return true;
-    }
-    // Swiper loads via /js/script.js after this inline script, so retry briefly.
-    let tries = 0;
-    const retry = setInterval(() => {
-      if (initPartnerSlider() || tries > 40) clearInterval(retry);
-      tries++;
-    }, 100);
-  })();
-</script>
 
 {{ end }}

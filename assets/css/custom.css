@@ -180,9 +180,44 @@ a:hover { text-decoration-thickness: 2px; }
       transparent 100%);
   overflow: hidden;
 }
-.partner-slider .swiper-wrapper {
-  /* linear timing makes the autoplay read as a continuous ticker, not a slide */
-  transition-timing-function: linear !important;
+/* Continuous marquee. The track holds two identical groups and travels exactly
+   one group width, so the loop point is invisible -- no boundary re-arrangement,
+   which is what made the Swiper version stutter. */
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 38s linear infinite;
+}
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  padding-right: 3.5rem;
+  margin: 0;
+  list-style: none;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee:hover,
+.marquee:focus-within {
+  animation-play-state: paused;
+}
+
+/* An endless ticker is the WCAG 2.2.2 case: motion beside content with no stop
+   control, and hover-pausing does nothing for keyboard or touch users. Reduced
+   motion gets a still strip that can be scrolled by hand. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none;
+  }
+  .partner-strip-mask {
+    overflow-x: auto;
+  }
 }
 .partner-logo {
   filter: grayscale(1);
