@@ -103,7 +103,7 @@ associate:
     role: clinical
     affiliation: Dr. (MD, PhD) · The Intervention Centre, OUS
     photo: /images/team/davit.jpg
-    bio_short: Clinical collaborator on liver-surgery research.
+    bio_short: Surgeon and postdoctoral researcher in liver surgery.
     bio: |
       <p>Dr. Davit Aghayan is a clinical collaborator at the
       Intervention Centre, Oslo University Hospital. He contributes
@@ -130,7 +130,7 @@ associate:
     affiliation: Dr. (MD) · The Intervention Centre, OUS
     bio_short: Clinical collaborator at the Intervention Centre, OUS.
     bio: |
-      <p>Dr. Ingrid Shroeder-Hansen is a clinical collaborator at the
+      <p>Dr. Ingrid Schrøder-Hansen is a clinical collaborator at the
       Intervention Centre, Oslo University Hospital.</p>
     expertise: []
     projects: []
@@ -155,7 +155,7 @@ associate:
     affiliation: Dr. (MD, PhD) · The Intervention Centre, OUS
     bio_short: Clinical collaborator at the Intervention Centre, OUS.
     bio: |
-      <p>Dr. Aasmund Fretland is a clinical collaborator at the
+      <p>Dr. Åsmund Avdem Fretland is a clinical collaborator at the
       Intervention Centre, Oslo University Hospital.</p>
     expertise: []
     projects: []
@@ -204,6 +204,25 @@ associate:
         title: SlicerLiver
     github: RuoyanMeng
     weight: 75
+
+  - slug: jonas-ludwig
+    name: Jonas Ludwig
+    role: technical
+    specialty: Machine Learning
+    affiliation: KIT Institute of Biomedical Engineering
+    bio_short: Reinforcement learning for neurosurgical trajectory planning.
+    bio: |
+      <p>Jonas wrote his MSc thesis on a deep reinforcement learning
+      approach to neurosurgical trajectory planning, framing the problem
+      as a sequential decision task over medical imaging and vascular
+      models. The work was done at the KIT Institute of Biomedical
+      Engineering in cooperation with The Intervention Centre, and
+      completed in 2026.</p>
+    expertise:
+      - Reinforcement learning
+      - Surgical planning
+    github: joeFPV99
+    weight: 80
 
 students:
 
@@ -263,24 +282,6 @@ students:
     weight: 30
 
 
-  - slug: jonas-ludwig
-    name: Jonas Ludwig
-    role: MSc student
-    specialty: MSc Student
-    affiliation: KIT Institute of Biomedical Engineering
-    bio_short: Reinforcement learning for neurosurgical trajectory planning.
-    bio: |
-      <p>Jonas wrote his MSc thesis on a deep reinforcement learning
-      approach to neurosurgical trajectory planning, framing the problem
-      as a sequential decision task over medical imaging and vascular
-      models. The work was done at the KIT Institute of Biomedical
-      Engineering in cooperation with The Intervention Centre, and
-      completed in 2026.</p>
-    expertise:
-      - Reinforcement learning
-      - Surgical planning
-    github: joeFPV99
-    weight: 40
 
 visiting:
   ## Add visiting researchers / external students here. Example:
