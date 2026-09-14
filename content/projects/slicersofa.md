@@ -1,7 +1,7 @@
 ---
 title: "SlicerSOFA"
 meta_title: "SlicerSOFA — MESH|Lab"
-description: "Real-time soft-tissue simulation inside 3D Slicer, built on the SOFA framework — with a SlicerROS2 bridge that lets a simulated organ drive, and be driven by, robotic and haptic hardware."
+description: "Real-time soft-tissue simulation inside 3D Slicer, built on the SOFA framework, and made to work through SlicerROS2 so a simulated organ can meet robotic and haptic hardware on a research bench."
 status: "active"
 themes: ["simulation-robotics"]
 lead: "Rafael Palomar"
@@ -34,13 +34,11 @@ organ becomes a simulable mesh, with the grid, material parameters and boundary
 conditions expressed as scene nodes so a simulation is set up the way the rest of
 a Slicer workflow is.
 
-**The SlicerROS2 bridge** is what makes the simulation talk to hardware. Through
-[SlicerROS2](https://github.com/rosmed/slicer_ros2_module), a Slicer scene can exchange
-transforms and messages with ROS 2, so a robot or a haptic device can be driven
-against the deforming model on a research bench. With a consumer-grade haptic
-device, the resulting research bench replays surgical motion against a deforming
-organ — a capability previously confined to research-grade hardware costing an
-order of magnitude more.
+**Interoperability with SlicerROS2** is what lets the simulation meet hardware.
+The Slicer ↔ ROS 2 bridge itself is
+[SlicerROS2](https://github.com/rosmed/slicer_ros2_module), which we do not
+maintain; our part is making a SOFA simulation work through it, so a robot or a
+haptic device can be driven against the deforming model on a research bench.
 
 The robotic and haptic demonstrations live in
 [slicer-ros2-demos](https://github.com/OUH-MESHLab/slicer-ros2-demos) and
