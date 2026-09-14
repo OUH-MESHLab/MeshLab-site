@@ -21,9 +21,9 @@ investigation.
 - **Slicer ↔ SOFA integrations** that bring deformable-tissue
   simulation directly into the planning environment surgeons already
   use.
-- **Slicer ↔ ROS 2 integrations** so a planning scene can drive a
-  robot — and the robot can stream state back into the scene — in
-  the same coordinate frame.
+- **Slicer ↔ ROS 2 bridges** that let a planning scene and ROS 2
+  exchange transforms and messages, so simulation and robot hardware
+  can be tried against each other on a research bench.
 - **Haptic-feedback demonstrators** that combine the above with
   consumer-grade haptic devices to make organ-deformation behaviour
   available to clinical researchers without the cost of a research-

@@ -35,9 +35,9 @@ conditions expressed as scene nodes so a simulation is set up the way the rest o
 a Slicer workflow is.
 
 **The SlicerROS2 bridge** is what makes the simulation talk to hardware. Through
-[SlicerROS2](https://github.com/rosmed/slicer_ros2_module), the same scene and
-coordinate frame are shared with ROS 2, so a robot or a haptic device can move
-against the deforming model and feel it push back. With a consumer-grade haptic
+[SlicerROS2](https://github.com/rosmed/slicer_ros2_module), a Slicer scene can exchange
+transforms and messages with ROS 2, so a robot or a haptic device can be driven
+against the deforming model on a research bench. With a consumer-grade haptic
 device, the resulting research bench replays surgical motion against a deforming
 organ — a capability previously confined to research-grade hardware costing an
 order of magnitude more.
