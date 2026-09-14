@@ -288,12 +288,19 @@
       if (typeof Swiper === 'undefined') return false;
       const el = document.querySelector('.partner-slider');
       if (!el || el.swiper) return true;
+      // An endless ticker is exactly the case WCAG 2.2.2 is about: motion that
+      // runs beside content with no stop control. Mouse-hover pausing does not
+      // help a keyboard or touch user, so reduced-motion gets a static row that
+      // can still be swiped.
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       new Swiper('.partner-slider', {
         slidesPerView: 'auto',
         spaceBetween: 56,
         loop: true,
-        speed: 8000,
-        autoplay: { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true },
+        // Duration of one slide's travel. At 8000 the strip crawled; 2500 reads
+        // as a ticker rather than a stall.
+        speed: reduceMotion ? 0 : 2500,
+        autoplay: reduceMotion ? false : { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true },
         freeMode: { enabled: true, momentum: false },
         allowTouchMove: true,
         a11y: { enabled: true, containerMessage: 'Collaborator logos' },
