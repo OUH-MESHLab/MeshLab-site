@@ -125,12 +125,12 @@ associate:
     weight: 30
 
   - slug: ingrid-schroder-hansen
-    name: Ingrid Schrøder-Hansen
+    name: Ingrid Schrøder Hansen
     role: clinical
     affiliation: Dr. (MD) · The Intervention Centre, OUS
     bio_short: Clinical collaborator at the Intervention Centre, OUS.
     bio: |
-      <p>Dr. Ingrid Schrøder-Hansen is a clinical collaborator at the
+      <p>Dr. Ingrid Schrøder Hansen is a clinical collaborator at the
       Intervention Centre, Oslo University Hospital.</p>
     expertise: []
     projects: []
