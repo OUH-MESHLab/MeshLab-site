@@ -21,9 +21,6 @@ investigation.
 - **Slicer ↔ SOFA integrations** that bring deformable-tissue
   simulation directly into the planning environment surgeons already
   use.
-- **Research benches that reach robot hardware** through the existing
-  [SlicerROS2](https://github.com/rosmed/slicer_ros2_module) bridge —
-  we build what runs on top of it, not the bridge itself.
 - **Haptic-feedback demonstrators** that combine the above with
   consumer-grade haptic devices to make organ-deformation behaviour
   available to clinical researchers without the cost of a research-
