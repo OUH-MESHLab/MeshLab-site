@@ -85,11 +85,19 @@
             <p class="font-body text-[0.95rem] leading-[1.55] text-[color:var(--ink)] flex-1 mb-4">
               {{ .Description }}
             </p>
-            <div>
+            <div class="flex items-center justify-between gap-4">
               <a href="{{ .RelPermalink }}"
                  class="font-body font-medium text-[0.9rem] text-[color:var(--accent)] hover:text-[color:var(--accent-hover)] underline decoration-[color:var(--accent-stroke)] decoration-1 underline-offset-4 hover:decoration-2">
                 Read more →
               </a>
+              {{ with .Params.repo }}
+                <a href="{{ . }}" target="_blank" rel="noopener"
+                   title="Source on GitHub"
+                   class="text-[color:var(--ink-subtle)] hover:text-[color:var(--ink)] transition-colors duration-150 flex-none">
+                  <span class="sr-only">{{ $.Title }} source on GitHub</span>
+                  {{ partial "icon-github" (dict "Size" 18) }}
+                </a>
+              {{ end }}
             </div>
           </article>
         {{ end }}
