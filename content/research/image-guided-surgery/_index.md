@@ -23,9 +23,9 @@ already use.
 - **3D Slicer extensions** for patient-specific planning workflows,
   designed by surgeons in the same room as the engineers writing the
   code.
-- **Bridges to commercial navigation systems** (Brainlab, in
-  particular) that turn open-source planning output into intra-
-  operative guidance without re-licensing the whole pipeline.
+- **Bridges to commercial navigation systems** that turn open-source
+  planning output into intra-operative guidance without re-licensing
+  the whole pipeline.
 - **Stereotactic-procedure planners** for electrode placement in
   deep-brain stimulation, in collaboration with European
   neurosurgical centres.
