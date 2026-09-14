@@ -1,7 +1,19 @@
 [build]
 publish = "public"
-command = "yarn project-setup; yarn build"
+# `npm run build` runs scripts/themeGenerator.js and then hugo --gc --minify.
+# The template shipped "yarn project-setup; yarn build"; project-setup is not a
+# script in this package.json, and the lockfile here is npm's.
+command = "npm run build"
 
 [build.environment]
-HUGO_VERSION = "0.153.3"
+# Match the version the site is developed against.
+HUGO_VERSION = "0.158.0"
 GO_VERSION = "1.25.1"
+NODE_VERSION = "22"
+
+[[headers]]
+for = "/*"
+  [headers.values]
+  X-Content-Type-Options = "nosniff"
+  X-Frame-Options = "SAMEORIGIN"
+  Referrer-Policy = "strict-origin-when-cross-origin"

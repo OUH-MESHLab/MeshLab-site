@@ -1,6 +1,6 @@
 canonifyURLs = false
 relativeURLs = false
-baseURL = "/"
+baseURL = "https://meshlab.no/"
 title = "MESH|Lab"
 theme = "hugoplate"
 timeZone = "Europe/Oslo"
