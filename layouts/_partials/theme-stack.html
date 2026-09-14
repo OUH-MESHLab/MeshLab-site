@@ -1,0 +1,60 @@
+{{/* "Four themes, one stack" as a picture, for the /research/ landing page.
+
+  The bands are the site's own description of its scope — operating systems,
+  clinical infrastructure, end-user medical applications (home page, and
+  PRODUCT.md). Each theme is placed on the band its own description puts it on:
+  image-guided surgery and simulation/robotics are what a clinician touches;
+  clinical data & AI is device interoperability and imaging archives, i.e. the
+  layer underneath; systems & infrastructure is the platform the other three run
+  on, so it spans the full width.
+
+  Content comes from the theme sections themselves, so renaming a theme or
+  editing its description updates this diagram with no change here. The band a
+  theme sits on is the one editorial decision, declared in `layer` front matter
+  on each theme's _index.md.
+
+  Styling is authored in custom.css (`.theme-stack`) rather than built from
+  arbitrary Tailwind utilities: the grid template is geometry, and Tailwind v4
+  only emits utilities it finds in hugo_stats.json, which a fresh one can miss. */}}
+
+{{ $research := site.GetPage "/research" }}
+{{ $bands := slice
+  (dict "id" "applications" "label" "End-user clinical applications")
+  (dict "id" "infrastructure" "label" "Clinical infrastructure")
+  (dict "id" "platform" "label" "Operating systems &amp; platform")
+}}
+
+<section class="relative">
+  <div class="container max-w-6xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
+    <p class="font-display uppercase tracking-[0.18em] text-sm text-[color:var(--ink-muted)] mb-8">
+      One stack
+    </p>
+
+    <div class="theme-stack">
+      {{ range $bands }}
+        {{ $band := . }}
+        {{ $themes := where $research.Sections "Params.layer" $band.id }}
+        {{ with $themes }}
+          <div class="theme-stack-row">
+            <p class="theme-stack-label font-display">{{ $band.label | safeHTML }}</p>
+            <div class="theme-stack-blocks{{ if gt (len $themes) 1 }} theme-stack-blocks-split{{ end }}">
+              {{ range sort . "Params.weight" "asc" }}
+                <a href="{{ .RelPermalink }}" class="theme-stack-block">
+                  <span class="theme-stack-title font-display">{{ .Title }}</span>
+                  <span class="theme-stack-desc font-body">{{ .Description }}</span>
+                </a>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
+    </div>
+
+    <p class="theme-stack-note font-body">
+      The bands say where a theme does its work, not where a project stops. A
+      surgical-planning project rests on the same platform we build for
+      monitoring devices.
+    </p>
+  </div>
+  <div class="h-px bg-[color:var(--border-warm)]"></div>
+</section>

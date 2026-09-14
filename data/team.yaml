@@ -7,6 +7,7 @@
 ## Tiers (matches the formal group description, 2026-05-20 PDF):
 ##   head            — the head of the group, "Group Leader" (one entry)
 ##   group           — "Group Member" tier (core lab members)
+##   students        — MSc students doing project work in the lab
 ##   associate       — "Associated Member" tier; role: technical | clinical
 ##   visiting        — visiting researchers / external students, time-bounded
 ##   alumni          — past members, compact name + period rendering
@@ -72,24 +73,6 @@ head:
     weight: 1
 
 group:
-  - slug: ruoyan-meng
-    name: Ruoyan Meng
-    role: Group Member · PhD Student
-    affiliation: The Intervention Centre, OUS · NTNU
-    photo: /images/team/ruoyan.jpg
-    bio_short: Liver-resection planning and visualisation in 3D Slicer.
-    bio: |
-      <p>Ruoyan is a PhD student jointly hosted at the Intervention
-      Centre, Oslo University Hospital and NTNU. She contributes to
-      SlicerLiver — patient-specific liver-resection planning,
-      visualisation, and the geometry behind virtual resections.</p>
-    expertise:
-      - Medical imaging
-      - 3D Slicer extensions
-    projects:
-      - slug: slicerliver
-        title: SlicerLiver
-    weight: 1
 
 associate:
 
@@ -141,8 +124,8 @@ associate:
     projects: []
     weight: 30
 
-  - slug: ingrid-shroeder-hansen
-    name: Ingrid Shroeder-Hansen
+  - slug: ingrid-schroder-hansen
+    name: Ingrid Schrøder-Hansen
     role: clinical
     affiliation: Dr. (MD) · The Intervention Centre, OUS
     bio_short: Clinical collaborator at the Intervention Centre, OUS.
@@ -156,6 +139,7 @@ associate:
   - slug: sarkis-drejan
     name: Sarkis Drejan
     role: clinical
+    specialty: MD · PhD candidate
     affiliation: Dr. · The Intervention Centre, OUS
     bio_short: Clinical collaborator at the Intervention Centre, OUS.
     bio: |
@@ -165,8 +149,8 @@ associate:
     projects: []
     weight: 50
 
-  - slug: aasmund-fretland
-    name: Aasmund Fretland
+  - slug: asmund-avdem-fretland
+    name: Åsmund Avdem Fretland
     role: clinical
     affiliation: Dr. (MD, PhD) · The Intervention Centre, OUS
     bio_short: Clinical collaborator at the Intervention Centre, OUS.
@@ -198,46 +182,34 @@ associate:
         title: SlicerLiver
     weight: 70
 
-  - slug: khai-duong
-    name: Khai Duong
-    role: technical
-    specialty: Software Engineer
-    affiliation: The Intervention Centre, OUS
-    bio_short: Patient-monitoring data extraction and lab infrastructure.
-    bio: |
-      <p>Khai works on the MONK system (Nihon Kohden waveform extraction)
-      and SystoleOS — the lab's foundational systems and clinical-data
-      integration projects.</p>
-    expertise:
-      - Software engineering
-      - Patient monitoring
-    projects:
-      - slug: monk-nihon-kohden
-        title: MONK
-      - slug: systoleos
-        title: SystoleOS
-    weight: 80
 
-  - slug: omar-el-hajj
-    name: Omar El Hajj
+
+  - slug: ruoyan-meng
+    name: Ruoyan Meng
     role: technical
-    specialty: Systems Engineer
-    affiliation: The Intervention Centre, OUS
-    bio_short: SystoleOS — operating-system platform for medical applications.
+    specialty: PhD Candidate
+    affiliation: The Intervention Centre, OUS · NTNU
+    photo: /images/team/ruoyan.jpg
+    bio_short: Liver-resection planning and visualisation in 3D Slicer.
     bio: |
-      <p>Omar works on SystoleOS, the lab's reproducible operating
-      system for medical applications.</p>
+      <p>Ruoyan is a PhD student jointly hosted at the Intervention
+      Centre, Oslo University Hospital and NTNU. She contributes to
+      SlicerLiver — patient-specific liver-resection planning,
+      visualisation, and the geometry behind virtual resections.</p>
     expertise:
-      - Software engineering
-      - Operating systems
+      - Medical imaging
+      - 3D Slicer extensions
     projects:
-      - slug: systoleos
-        title: SystoleOS
-    weight: 90
+      - slug: slicerliver
+        title: SlicerLiver
+    github: RuoyanMeng
+    weight: 75
+
+students:
 
   - slug: eleonore-germond
     name: Eléonore Germond
-    role: technical
+    role: MSc student
     specialty: Simulation & Robotics
     affiliation: The Intervention Centre, OUS — joint with Inria
     bio_short: Soft-tissue simulation + robotics integration in 3D Slicer.
@@ -253,7 +225,64 @@ associate:
     projects:
       - slug: slicersofa-slicerros2
         title: SlicerSOFA + SlicerROS2
-    weight: 100
+    weight: 10
+
+  - slug: khai-duong
+    name: Khai Duong
+    role: MSc student
+    specialty: Software Engineer
+    affiliation: The Intervention Centre, OUS
+    bio_short: Patient-monitoring data extraction and lab infrastructure.
+    bio: |
+      <p>Khai works on the MONK system (Nihon Kohden waveform extraction)
+      and SystoleOS — the lab's foundational systems and clinical-data
+      integration projects.</p>
+    expertise:
+      - Software engineering
+      - Patient monitoring
+    projects:
+      - slug: monk-nihon-kohden
+        title: MONK
+      - slug: systoleos
+        title: SystoleOS
+    weight: 20
+
+  - slug: omar-el-hajj
+    name: Omar El Hajj
+    role: MSc student
+    specialty: Systems Engineer
+    affiliation: The Intervention Centre, OUS
+    bio_short: SystoleOS — operating-system platform for medical applications.
+    bio: |
+      <p>Omar works on SystoleOS, the lab's reproducible operating
+      system for medical applications.</p>
+    expertise:
+      - Software engineering
+      - Operating systems
+    projects:
+      - slug: systoleos
+        title: SystoleOS
+    weight: 30
+
+
+  - slug: jonas-ludwig
+    name: Jonas Ludwig
+    role: MSc student
+    specialty: MSc Student
+    affiliation: KIT Institute of Biomedical Engineering
+    bio_short: Reinforcement learning for neurosurgical trajectory planning.
+    bio: |
+      <p>Jonas wrote his MSc thesis on a deep reinforcement learning
+      approach to neurosurgical trajectory planning, framing the problem
+      as a sequential decision task over medical imaging and vascular
+      models. The work was done at the KIT Institute of Biomedical
+      Engineering in cooperation with The Intervention Centre, and
+      completed in 2026.</p>
+    expertise:
+      - Reinforcement learning
+      - Surgical planning
+    github: joeFPV99
+    weight: 40
 
 visiting:
   ## Add visiting researchers / external students here. Example:
