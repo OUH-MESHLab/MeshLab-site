@@ -18,7 +18,7 @@ banner:
 research:
   eyebrow: "Research"
   title: "One path from clinic to software"
-  lead: "The work runs from the operating system a clinical workstation boots, through the infrastructure research depends on, to the application a clinician plans with. Four themes organise it."
+  lead: "Our approach is to integrate research into software that can be maintained, developed further and deployed. That means keeping control of the full stack — from the operating system a clinical workstation boots to the application a clinician works with. Four themes organise that work."
 
 # Research themes (rendered as the four feature blocks)
 features:
