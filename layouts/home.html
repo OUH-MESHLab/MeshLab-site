@@ -164,8 +164,7 @@
               </a>
             </h3>
             <p class="font-body text-sm text-[color:var(--ink-muted)] mb-4">
-              {{ with .Params.lead }}{{ . }}{{ end }}
-              {{ with .Params.year_start }} · {{ . }}{{ end }}{{ with .Params.year_end }}–{{ . }}{{ else }}{{ with .Params.year_start }}–{{ end }}{{ end }}
+              {{ with .Params.year_start }}{{ . }}{{ end }}{{ with .Params.year_end }}–{{ . }}{{ else }}{{ with .Params.year_start }}–{{ end }}{{ end }}
             </p>
             <p class="font-body text-[0.95rem] leading-[1.55] text-[color:var(--ink)] flex-1 mb-5">
               {{ .Params.description }}
