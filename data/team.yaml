@@ -140,10 +140,10 @@ associate:
     name: Sarkis Drejan
     role: clinical
     specialty: MD · PhD candidate
-    affiliation: Dr. · The Intervention Centre, OUS
+    affiliation: The Intervention Centre, OUS
     bio_short: Clinical collaborator at the Intervention Centre, OUS.
     bio: |
-      <p>Dr. Sarkis Drejan is a clinical collaborator at the
+      <p>Sarkis Drejan is a clinical collaborator at the
       Intervention Centre, Oslo University Hospital.</p>
     expertise: []
     projects: []
@@ -230,13 +230,12 @@ students:
     name: Eléonore Germond
     role: MSc student
     specialty: Simulation & Robotics
-    affiliation: The Intervention Centre, OUS — joint with Inria
+    affiliation: IMT Atlantique
     bio_short: Soft-tissue simulation + robotics integration in 3D Slicer.
     bio: |
       <p>Eléonore works on SlicerSOFA and its ROS 2 bridge — bringing
       deformable-tissue simulation and robotic control into the
-      planning environment surgeons already use. The work is conducted
-      jointly with Inria.</p>
+      planning environment surgeons already use.</p>
     expertise:
       - Soft-tissue simulation
       - Robotics
@@ -250,7 +249,8 @@ students:
     name: Khai Duong
     role: MSc student
     specialty: Software Engineer
-    affiliation: The Intervention Centre, OUS
+    affiliation: NTNU
+    photo: /images/team/khai.jpg
     bio_short: Reproducible operating systems and lab infrastructure.
     bio: |
       <p>Khai works on SystoleOS — the lab's reproducible operating
@@ -268,7 +268,7 @@ students:
     name: Omar El Hajj
     role: MSc student
     specialty: Systems Engineer
-    affiliation: The Intervention Centre, OUS
+    affiliation: NTNU
     bio_short: SystoleOS — operating-system platform for medical applications.
     bio: |
       <p>Omar El Hajj works on SystoleOS, the lab's reproducible operating
@@ -303,19 +303,23 @@ visiting:
   #   weight: 10
 
 alumni:
-  ## Past members. Compact rendering: name + period + (optional role).
+  ## Past members. Compact rendering: name + period + (optional role,
+  ## affiliation at the time).
 
   - name: Aliaan Azam
     role: Bachelor student · MONK
+    affiliation: NTNU
     period: "2024"
     weight: 10
 
   - name: Sondre Espeland
     role: Bachelor student · MONK
+    affiliation: NTNU
     period: "2024"
     weight: 20
 
   - name: Jonathan Folland
     role: Bachelor student · MONK
+    affiliation: NTNU
     period: "2024"
     weight: 30
